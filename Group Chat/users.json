@@ -1,0 +1,10 @@
+[
+    {"id": 1, "username": "johndoe", "email": "johndoe@example.com", "password": "password1", "nid": 12345, "location": "New York"},
+    {"id": 2, "username": "janesmith", "email": "janesmith@example.com", "password": "password2", "nid": 54321, "location": "Los Angeles"},
+    {"id": 3, "username": "alicejones", "email": "alicejones@example.com", "password": "password3", "nid": 98765, "location": "Chicago"},
+    {"id": 4, "username": "bobwilson", "email": "bobwilson@example.com", "password": "password4", "nid": 67890, "location": "Houston"},
+    {"id": 5, "username": "emilybrown", "email": "emilybrown@example.com", "password": "password5", "nid": 45678, "location": "Miami"},
+    {"id": 21, "username": "Nafis", "email": "nr@g.com", "password": "123", "nid": 24680, "location": "San Francisco"},
+    {"id": 22, "username": "nrtg", "email": "nrtg@g.com", "password": "123", "nid": 13579, "location": "Seattle"},
+    {"id": 23, "username": "nam", "email": "email@g.com", "password": "password2", "nid": 100001, "location": "Dhaka"}
+]
