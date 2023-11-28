@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Dorms{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="{{ url_for('static', filename='student-dorm-hero.jpg') }}" alt="Student Dorm Image">
+        <div class="hero-text">
+            <h1>Welcome to Student Dormitories</h1>
+            <p>Your Cozy Space for Learning and Relaxation</p>
+            <a href="{{ url_for('search') }}" class="btn btn-primary">Find Your Dorm</a>
+        </div>
+    </section>
+
+    <!-- Dorm Listings -->
+    <section class="dorm-listings">
+        <h2>Available Dorms</h2>
+        <div class="dorm-cards">
+            {% for dorm in dorms %}
+                <div class="dorm-card">
+                    <img src="{{ dorm.image }}" alt="{{ dorm.name }}">
+                    <h3>{{ dorm.name }}</h3>
+                    <p>{{ dorm.description }}</p>
+                    <span class="price">{{ dorm.price }}</span>
+                    <a href="{{ url_for('dorm_details', dorm_id=dorm.id) }}" class="btn btn-secondary">Details</a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

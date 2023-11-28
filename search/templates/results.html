@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Search Results for "{{ query }}"</h1>
+        
+        <!-- Sorting Form -->
+        <form action="/search" method="post">
+            <label for="sort">Sort by:</label>
+            <select id="sort" name="sort">
+                <option value="default">Default</option>
+                <option value="alphabetical">Alphabetical</option>
+                <!-- Add more sorting options as needed -->
+            </select>
+            <input type="hidden" name="query" value="{{ query }}">
+            <button type="submit">Apply Sorting</button>
+        </form>
+
+        <!-- Display Search Results -->
+        <ul>
+            {% for result in results %}
+                <li>{{ result }}</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Link to Sorting Page -->
+        <a href="{{ url_for('sorting', query=query) }}">Change Sorting</a>
+
+        <a href="/">Back to Search</a>
+    </div>
+</body>
+</html>

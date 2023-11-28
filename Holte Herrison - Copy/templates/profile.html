@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section id="user-profile">
+    <h2>User Profile</h2>
+    <div class="user-info">
+      <h3>User Name</h3>
+      <p>Email: user@example.com</p>
+      <p>Booking History: List of previous bookings</p>
+    </div>
+    <form action="/update-profile" method="post">
+      <input type="text" name="name" placeholder="Full Name">
+      <input type="email" name="email" placeholder="Email Address">
+      <button type="submit">Update Profile</button>
+    </form>
+  </section>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section id="dorm-page">
+    <h2>Dorm Name</h2>
+    <img src="dorm_image.jpg" alt="Dorm Image">
+    <p>Location: Dorm Location</p>
+    <p>Description: Detailed information about the Dorm</p>
+    <h3>Amenities</h3>
+    <ul>
+      <li>Amenity 1</li>
+      <li>Amenity 2</li>
+      <!-- List other amenities -->
+    </ul>
+    <h3>Room Types</h3>
+    <div class="room-type">
+      <h4>Single Room</h4>
+      <p>Price: $50 per night</p>
+      <button>Book Now</button>
+    </div>
+    <!-- Repeat for other room types -->
+  </section>
+{% endblock %}

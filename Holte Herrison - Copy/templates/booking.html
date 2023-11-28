@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section id="booking">
+    <h2>Book Your Stay</h2>
+    <div class="selected-dorm">
+      <h3>Selected Dorm: Dorm Name</h3>
+      <img src="dorm_image.jpg" alt="Dorm Image">
+      <h4>Selected Room Type: Single Room</h4>
+      <p>Price: $50 per night</p>
+    </div>
+    <form action="/confirm-booking" method="post">
+      <input type="text" name="name" placeholder="Full Name">
+      <input type="email" name="email" placeholder="Email Address">
+      <input type="text" name="credit-card" placeholder="Credit Card Number">
+      <button type="submit">Confirm Booking</button>
+    </form>
+  </section>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section id="homepage">
+    <h1>Welcome to Your Dorm Experience</h1>
+    <form action="/search" method="get" class="search-form">
+      <input type="text" name="destination" placeholder="Enter your destination">
+      <input type="date" name="check-in" placeholder="Check-in date">
+      <input type="date" name="check-out" placeholder="Check-out date">
+      <input type="number" name="guests" placeholder="Number of guests">
+      <button type="submit">Search</button>
+    </form>
+
+    <!-- Featured Dorms Grid -->
+    <div id="featured-Dorms" class="grid-container">
+      <div class="Dorm grid-item">
+        <h2>Dorm 1</h2>
+        <p>Discover luxury and comfort at its best.</p>
+        <a href="/Dorm/1">View Details</a>
+      </div>
+      <div class="Dorm grid-item">
+        <h2>Dorm 2</h2>
+        <p>Your exquisite escape awaits you.</p>
+        <a href="/Dorm/2">View Details</a>
+      </div>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <h2>What Our Guests Say</h2>
+    <div id="testimonials" class="grid-container">
+      <div class="testimonial grid-item">
+        <p>"I had an amazing experience staying here. Highly recommended!"</p>
+        <cite>John Doe, Guest</cite>
+      </div>
+      <div class="testimonial grid-item">
+        <p>"Clean and comfortable rooms. The staff is friendly and helpful."</p>
+        <cite>Jane Smith, Traveler</cite>
+      </div>
+    </div>
+  </section>
+{% endblock %}

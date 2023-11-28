@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Dorm Details{% endblock %}
+
+{% block content %}
+    <h2>{{ dorm.name }}</h2>
+    <p>Description: {{ dorm.description }}</p>
+    <p>Price: {{ dorm.price }}</p>
+    <!-- Add more dorm details as needed -->
+{% endblock %}

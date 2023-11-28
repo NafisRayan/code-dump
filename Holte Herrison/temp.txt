@@ -1,0 +1,123 @@
+/* Body and Background */
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  padding: 10px;
+}
+
+/* Navigation Menu */
+nav {
+  background: linear-gradient(90deg, #007F7F, #00AA00);
+  padding: 5px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  animation: slideDown 0.5s;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #007FFF;
+  transform: scale(1.1); /* Add hover scale animation */
+}
+
+/* Main Content */
+main {
+  padding: 20px;
+  margin-top: 50px; /* Create space below the fixed navigation menu */
+}
+
+/* Links */
+a {
+  color: #007FFF;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #005AAA;
+  transform: scale(1.05); /* Add hover scale animation */
+}
+
+/* Forms */
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+button {
+  background-color: #007FFF;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #005AAA;
+  transform: scale(1.1);
+}
+
+/* Flash Messages */
+.flash {
+  background: linear-gradient(90deg, #00AA00, #00FF00);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.flash.error {
+  background: linear-gradient(90deg, #AA0000, #FF0000);
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(90deg, #007F7F, #00AA00);
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 2px solid #004A4A;
+}

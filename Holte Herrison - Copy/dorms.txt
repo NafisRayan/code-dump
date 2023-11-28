@@ -1,0 +1,178 @@
+[
+    {
+        "id": 5,
+        "name": "Dorm 5",
+        "location": "Location 5",
+        "description": "Description 5",
+        "amenities": ["Amenity 9", "Amenity 10"],
+        "room_types": [
+            {"name": "Single Room", "price": 45},
+            {"name": "Double Room", "price": 75}
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Dorm 6",
+        "location": "Location 6",
+        "description": "Description 6",
+        "amenities": ["Amenity 11", "Amenity 12"],
+        "room_types": [
+            {"name": "Single Room", "price": 65},
+            {"name": "Double Room", "price": 95}
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Dorm 7",
+        "location": "Location 7",
+        "description": "Description 7",
+        "amenities": ["Amenity 13", "Amenity 14"],
+        "room_types": [
+            {"name": "Single Room", "price": 55},
+            {"name": "Double Room", "price": 85}
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Dorm 8",
+        "location": "Location 8",
+        "description": "Description 8",
+        "amenities": ["Amenity 15", "Amenity 16"],
+        "room_types": [
+            {"name": "Single Room", "price": 60},
+            {"name": "Double Room", "price": 90}
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Dorm 9",
+        "location": "Location 9",
+        "description": "Description 9",
+        "amenities": ["Amenity 17", "Amenity 18"],
+        "room_types": [
+            {"name": "Single Room", "price": 50},
+            {"name": "Double Room", "price": 80}
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Dorm 10",
+        "location": "Location 10",
+        "description": "Description 10",
+        "amenities": ["Amenity 19", "Amenity 20"],
+        "room_types": [
+            {"name": "Single Room", "price": 70},
+            {"name": "Double Room", "price": 100}
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Dorm 11",
+        "location": "Location 11",
+        "description": "Description 11",
+        "amenities": ["Amenity 21", "Amenity 22"],
+        "room_types": [
+            {"name": "Single Room", "price": 45},
+            {"name": "Double Room", "price": 75}
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Dorm 12",
+        "location": "Location 12",
+        "description": "Description 12",
+        "amenities": ["Amenity 23", "Amenity 24"],
+        "room_types": [
+            {"name": "Single Room", "price": 65},
+            {"name": "Double Room", "price": 95}
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Dorm 13",
+        "location": "Location 13",
+        "description": "Description 13",
+        "amenities": ["Amenity 25", "Amenity 26"],
+        "room_types": [
+            {"name": "Single Room", "price": 55},
+            {"name": "Double Room", "price": 85}
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Dorm 14",
+        "location": "Location 14",
+        "description": "Description 14",
+        "amenities": ["Amenity 27", "Amenity 28"],
+        "room_types": [
+            {"name": "Single Room", "price": 60},
+            {"name": "Double Room", "price": 90}
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Dorm 15",
+        "location": "Location 15",
+        "description": "Description 15",
+        "amenities": ["Amenity 29", "Amenity 30"],
+        "room_types": [
+            {"name": "Single Room", "price": 50},
+            {"name": "Double Room", "price": 80}
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Dorm 16",
+        "location": "Location 16",
+        "description": "Description 16",
+        "amenities": ["Amenity 31", "Amenity 32"],
+        "room_types": [
+            {"name": "Single Room", "price": 70},
+            {"name": "Double Room", "price": 100}
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Dorm 17",
+        "location": "Location 17",
+        "description": "Description 17",
+        "amenities": ["Amenity 33", "Amenity 34"],
+        "room_types": [
+            {"name": "Single Room", "price": 45},
+            {"name": "Double Room", "price": 75}
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Dorm 18",
+        "location": "Location 18",
+        "description": "Description 18",
+        "amenities": ["Amenity 35", "Amenity 36"],
+        "room_types": [
+            {"name": "Single Room", "price": 65},
+            {"name": "Double Room", "price": 95}
+        ]
+    },
+    {
+        "id": 19,
+        "name": "Dorm 19",
+        "location": "Location 19",
+        "description": "Description 19",
+        "amenities": ["Amenity 37", "Amenity 38"],
+        "room_types": [
+            {"name": "Single Room", "price": 55},
+            {"name": "Double Room", "price": 85}
+        ]
+    },
+    {
+        "id": 20,
+        "name": "Dorm 20",
+        "location": "Location 20",
+        "description": "Description 20",
+        "amenities": ["Amenity 39", "Amenity 40"],
+        "room_types": [
+            {"name": "Single Room", "price": 60},
+            {"name": "Double Room", "price": 90}
+        ]
+    }
+]

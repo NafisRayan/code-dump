@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+    <h2>Search for Dorms</h2>
+    <form method="post">
+        <!-- Add search form fields here -->
+        <input type="text" name="destination" placeholder="Destination">
+        <input type="date" name="check-in" placeholder="Check-in date">
+        <input type="date" name "check-out" placeholder="Check-out date">
+        <input type="number" name="guests" placeholder="Number of Guests">
+        <button type="submit">Search</button>
+    </form>
+{% endblock %}

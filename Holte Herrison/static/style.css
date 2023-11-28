@@ -1,0 +1,229 @@
+/* style.css */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #fff; /* Set text color to white */
+}
+
+header {
+  background-color: #000b47;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+}
+
+nav {
+  background-color: #28004d;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 20px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.container {
+  padding: 20px;
+}
+
+/* Hero Section Styles */
+.hero {
+  background-image: url("hero-image.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #fff; /* Set text color to white */
+  text-align: center;
+  padding: 100px 0;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin: 10px 0;
+}
+
+.hero p {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.hero .btn {
+  display: inline-block;
+  background-color: #d13d4b;
+  color: #fff; /* Set text color to white */
+  padding: 10px 20px;
+  font-size: 18px;
+  text-decoration: none;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+hero .btn:hover {
+  background-color: #ffffff; /* Change the background color on hover */
+}
+
+/* Room Card Styles */
+.room-listings {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.room-card {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 5px;
+  transition: transform 0.2s;
+  width: calc(33.333% - 20px);
+  text-align: center;
+}
+
+.room-card img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.room-card h3 {
+  font-size: 24px;
+  margin: 10px 0;
+  color: #fff; /* Set text color to white */
+}
+
+.room-card p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #fff; /* Set text color to white */
+}
+
+.room-card .price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fcfcfc;
+  margin: 10px 0;
+}
+
+.room-card .btn {
+  background-color: #d13d4b;
+  color: #fff; /* Set text color to white */
+  padding: 10px 20px;
+  font-size: 18px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+}
+
+.room-card .btn:hover {
+  background-color: #a82d3a;
+  transform: scale(1.05);
+}
+
+/* General Button Style */
+.btn {
+  background-color: #d13d4b;
+  color: #fff; /* Set text color to white */
+  padding: 10px 20px;
+  font-size: 18px;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: #a82d3a;
+}
+
+
+/* style.css */
+/* ... (previous styles) */
+
+.dorm-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.dorm-card {
+  width: calc(33.333% - 20px);
+  /* Add other styles for dorm cards as needed */
+}
+
+.clear-fix {
+  clear: both;
+}
+
+
+/* Add this to your CSS */
+.dorm-card {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 5px;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.dorm-card img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.dorm-card h3 {
+  font-size: 24px;
+  margin: 10px 0;
+  color: #333; /* Set text color to your desired color */
+}
+
+.dorm-card p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #555; /* Set text color to your desired color */
+}
+
+.dorm-card .price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #d13d4b; /* Set text color to your desired color */
+  margin: 10px 0;
+}
+
+.dorm-card .btn {
+  background-color: #d13d4b;
+  color: #fff; /* Set text color to white */
+  padding: 10px 20px;
+  font-size: 18px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+}
+
+.dorm-card .btn:hover {
+  background-color: #a82d3a;
+  transform: scale(1.05);
+}
