@@ -2,7 +2,7 @@ import google.generativeai as genai
 import json
 import time
 
-genai.configure(api_key="AIzaSyD_SyHYr-ZLhl4vfDQqSHmgIGOGp-HJdT8")
+genai.configure(api_key="APk")
 
 # Set up the model
 generation_config = {
