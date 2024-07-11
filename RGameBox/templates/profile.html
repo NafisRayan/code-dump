@@ -1,0 +1,18 @@
+<!-- templates/profile.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if user_info %}
+        <div class="form-box">
+            <h2>Welcome, {{ user_info['name'] }}</h2>
+            <p>Username: {{ user_info['username'] }}</p>
+            <p>Country: {{ user_info['country'] }}</p>
+            <p>Birth Date: {{ user_info['birthdate'] }}</p>
+            <a href="/logout">Logout</a>
+        </div>
+    {% else %}
+        <div class="form-box">
+            <p>Please log in to access your profile.</p>
+        </div>
+    {% endif %}
+{% endblock %}
