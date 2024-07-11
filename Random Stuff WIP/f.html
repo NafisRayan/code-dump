@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Mastermind</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #003366;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        nav.logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav.login-button {
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .hero {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .hero button {
+            background-color: #003366;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .packages {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .packages h2 {
+            font-size: 24px;
+        }
+
+        .packages.package-options {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .package {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            width: 20%;
+        }
+
+        .package h3 {
+            font-size: 18px;
+        }
+
+        .family-support {
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .family-support h2 {
+            text-align: center;
+        }
+
+        .family-support ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .family-support ul li {
+            margin: 10px 0;
+        }
+
+        .strategy {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .strategy h2 {
+            font-size: 24px;
+        }
+
+        .strategy p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .approach {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .approach h2 {
+            font-size: 24px;
+        }
+
+        .approach.steps {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .step {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            width: 18%;
+        }
+
+        .step h3 {
+            font-size: 18px;
+        }
+
+        .statistics {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .statistics h2 {
+            font-size: 24px;
+        }
+
+        .stat-boxes {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            width: 30%;
+        }
+
+        .testimonials {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .testimonial {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            width: 30%;
+        }
+
+        footer {
+            background-color: #003366;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer.footer-content {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        footer h3 {
+            font-size: 18px;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin: 5px 0;
+        }
+
+        footer ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer.newsletter form {
+            display: flex;
+            gap: 10px;
+        }
+
+        footer.social-media {
+            display: flex;
+            gap: 10px;
+        }
+
+        footer.footer-bottom {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">College Mastermind</div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Countries</a></li>
+                <li><a href="#">Partnership</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+            <button class="login-button">Log In</button>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1>Let Us Help You with College Admissions!</h1>
+        <p>Get predictable results and more acceptances at selective universities with a data-driven approach.</p>
+        <button>Book Your Strategy Session</button>
+        <img src="hero-image.png" alt="Students">
+    </section>
+    
+    <section class="packages">
+        <h2>Curious which is the best package for you?</h2>
+        <button>View All</button>
+        <div class="package-options">
+            <div class="package">
+                <h3>Essential</h3>
+                <p>For students who are top 1% of the Typical Applicant Pool</p>
+                <button>Read More</button>
+            </div>
+            <div class="package">
+                <h3>Standard</h3>
+                <p>For first generation students in the top 3% of the Typical Applicant Pool</p>
+                <button>Read More</button>
+            </div>
+            <div class="package">
+                <h3>Premium</h3>
+                <p>For students in the top 5% of the Typical Applicant Pool</p>
+                <button>Read More</button>
+            </div>
+            <div class="package">
+                <h3>VIP</h3>
+                <p>For students in the bottom 50% of Typical Applicant Pool</p>
+                <button>Read More</button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="family-support">
+        <h2>You and your family will have everything you need...</h2>
+        <ul>
+            <li>A start-to-finish plan that will give your child their best shot at their top universities</li>
+            <li>Accountability and structure to keep everything on track and never miss a deadline</li>
+            <li>Milestones to reduce the stress around the process</li>
+            <li>Monthly meetings with your Family Support Manager to get your questions answered</li>
+            <li>Feedback and progress reports</li>
+            <li>Expert mentorship and guidance for every step of the College Mastermind Approach</li>
+        </ul>
+    </section>
+    
+    <section class="strategy">
+        <h2>Learn The Strategy Behind Our Success!</h2>
+        <p>Over 90% of our clients secured admission to their top 3 choices in the past 2 years.</p>
+        <button>Visit Our Site</button>
+    </section>
+    
+    <section class="approach">
+        <h2>The College Mastermind Approach</h2>
+        <div class="steps">
+            <div class="step">
+                <h3>Typical Applicant Pool</h3>
+                <p>Your typical applicant pool is high achieving: GPAs over 3.8, SAT scores over 1500, SAT and 34 ACT</p>
+                <button>Learn More</button>
+            </div>
+            <div class="step">
+                <h3>Know Your Value</h3>
+                <p>There are a lot of 4.0 GPA, 1600 SAT, 36 ACT, top 1% class rank applicants. Understand the value you've identified for admission</p>
+                <button>Learn More</button>
+            </div>
+            <div class="step">
+                <h3>University Fit</h3>
+                <p>Have a list of universities that will love your child and that they'll love back</p>
+                <button>Learn More</button>
+            </div>
+            <div class="step">
+                <h3>Value Credibility</h3>
+                <p>Don't just tell universities your child's value, show them! We have step by step activities to demonstrate your value</p>
+                <button>Learn More</button>
+            </div>
+            <div class="step">
+                <h3>Articulate Your Value</h3>
+                <p>Present your value to colleges and give them an undeniable case for why they should admit you</p>
+                <button>Learn More</button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="statistics">
+        <h2>Our Clients' Experiences</h2>
+        <div class="stat-boxes">
+            <div class="stat-box">
+                <p>100% of high achievers got into a Top 30 university 2023</p>
+            </div>
+            <div class="stat-box">
+                <p>94% of our clients get one of their top 3 choices in 2 years</p>
+            </div>
+            <div class="stat-box">
+                <p>2 Perfect ACT scores in 2024 School Year</p>
+            </div>
+        </div>
+        <div class="testimonials">
+            <div class="testimonial">
+                <p>"College Mastermind helped me get into UC Irvine, my TOP CHOICE!" - Cynthia, Student</p>
+                <button>Read More</button>
+            </div>
+            <div class="testimonial">
+                <p>"I got into a Top 30 universities, and got an internship at Boeing!" - Ashley, Student</p>
+                <button>Read More</button>
+            </div>
+            <div class="testimonial">
+                <p>"Billy got a 36 on his ACT in only 4 sessions!" - Stephanie, Mother</p>
+                <button>Read More</button>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="quick-links">
+                <h3>Quick Link</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Countries</a></li>
+                    <li><a href="#">Partnership</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="services">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Essay Intensive</a></li>
+                    <li><a href="#">Test Prep</a></li>
+                    <li><a href="#">Admissions Service</a></li>
+                    <li><a href="#">Career Guidance</a></li>
+                </ul>
+            </div>
+            <div class="countries">
+                <h3>Countries</h3>
+                <ul>
+                    <li><a href="#">Saudi Arabia</a></li>
+                    <li><a href="#">China</a></li>
+                    <li><a href="#">India</a></li>
+                    <li><a href="#">South Korea</a></li>
+                    <li><a href="#">United Arab Emirates</a></li>
+                    <li><a href="#">Bahrain</a></li>
+                </ul>
+            </div>
+            <div class="newsletter">
+                <h3>Subscribe Our Newsletter</h3>
+                <form>
+                    <input type="email" placeholder="Email">
+                    <button type="submit">Submit</button>
+                </form>
+                <div class="social-media">
+                    <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                    <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                    <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                    <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Privacy Policy | Legal Terms</p>
+        </div>
+    </footer>
+</body>
+</html>
