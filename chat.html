@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korra Simple Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        input[type="text"] {
+            width: 97%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h2>Korra Simple Chat</h2>
+        </header>
+        <main>
+            <input type="text" id="usernameInput" placeholder="Enter your username...">
+            <button onclick="joinChat()">Join Chat</button>
+            <ul id="messages"></ul>
+            <form id="messageForm" action="#">
+                <input type="text" id="messageInput" placeholder="Type your message...">
+                <button type="submit">Send</button>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        let messages = [];
+        const usernameInput = document.getElementById('usernameInput');
+        const messageInput = document.getElementById('messageInput');
+        const messagesList = document.getElementById('messages');
+
+        function joinChat() {
+            const username = usernameInput.value.trim();
+            if (!username) return alert("Please enter a username.");
+
+            localStorage.setItem('username', username);
+
+            const welcomeMessage = document.createElement('li');
+            welcomeMessage.textContent = `Welcome, ${username}!`;
+            messagesList.appendChild(welcomeMessage);
+
+            usernameInput.value = '';
+
+            document.getElementById('messageForm').addEventListener('submit', sendMessage);
+        }
+
+        function sendMessage(e) {
+            e.preventDefault();
+
+            const message = messageInput.value.trim();
+            if (!message) return;
+
+            const listItem = document.createElement('li');
+            listItem.textContent = `${localStorage.getItem('username')}: ${message}`;
+            messagesList.appendChild(listItem);
+
+            messageInput.value = '';
+
+            messages.push({ username: localStorage.getItem('username'), message });
+
+            localStorage.setItem('messages', JSON.stringify(messages));
+        }
+
+        function debounce(func, wait = 300) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        const debouncedSendMessage = debounce(sendMessage, 500);
+
+        document.getElementById('messageForm').addEventListener('submit', debouncedSendMessage);
+
+        const savedMessages = localStorage.getItem('messages');
+        if (savedMessages) {
+            messages = JSON.parse(savedMessages).reverse();
+            messages.forEach(message => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${message.username}: ${message.message}`;
+                messagesList.appendChild(listItem);
+            });
+        }
+    </script>
+</body>
+
+</html>
