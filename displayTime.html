@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time & Real-time Transcription</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .time {
+            font-size: 48px;
+            color: #333;
+        }
+
+        #transcript {
+            margin-top: 20px;
+            font-size: 20px;
+            font-style: italic;
+            color: #555;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="time" id="time"></h1>
+        <h2>Speak something, and we'll transcribe it!</h2>
+        <p id="transcript">Your words will appear here...</p>
+        <button id="start-btn">Start Transcription</button>
+    </div>
+
+    <script>
+        // Live clock
+        function updateTime() {
+            const timeElement = document.getElementById('time');
+            const now = new Date();
+            timeElement.textContent = now.toLocaleTimeString();
+        }
+        setInterval(updateTime, 1000);
+
+        // Speech recognition
+        const transcriptElement = document.getElementById('transcript');
+        const startBtn = document.getElementById('start-btn');
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'en-US';
+        recognition.interimResults = true;
+
+        recognition.onresult = (event) => {
+            const transcript = Array.from(event.results)
+                .map(result => result[0])
+                .map(result => result.transcript)
+                .join('');
+            
+            transcriptElement.textContent = transcript;
+        };
+
+        recognition.onerror = (event) => {
+    let errorMsg = 'An error occurred: ';
+
+    switch (event.error) {
+        case 'network':
+            errorMsg += 'Network issue. Please check your internet connection and try again.';
+            break;
+        case 'not-allowed':
+            errorMsg += 'Microphone access is blocked. Please allow microphone permissions.';
+            break;
+        case 'no-speech':
+            errorMsg += 'No speech detected. Try speaking clearly.';
+            break;
+        default:
+            errorMsg += event.error;
+    }
+
+    transcriptElement.textContent = errorMsg;
+};
+
+
+        startBtn.addEventListener('click', () => {
+            recognition.start();
+        });
+    </script>
+</body>
+</html>
