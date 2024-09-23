@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Solar System App</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #00102a, #002851);
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #001f3f;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        header .profile {
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+
+        .solar-system {
+            display: flex;
+            justify-content: center;
+            padding: 40px 0;
+        }
+
+        .solar-system img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .planets {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px auto;
+            flex-wrap: wrap;
+        }
+
+        .planet {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 200px;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .planet:hover {
+            transform: scale(1.05);
+        }
+
+        .planet img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .chatbot {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #004080;
+            padding: 20px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 80px;
+            right: 30px;
+            width: 300px;
+            background: #002851;
+            border-radius: 15px;
+            padding: 20px;
+            display: none;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .chat-window.active {
+            display: block;
+        }
+
+        .chat-window header {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .chat-window .message {
+            background: #001f3f;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .chat-window input {
+            width: calc(100% - 40px);
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #004080;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Educational Solar System App</h1>
+    <div class="profile">
+        <span>User</span>
+        <img src="https://unsplash.com/photos/BGz8vO3pK8k/download?force=true&w=640" alt="User Avatar">
+    </div>
+</header>
+
+<section class="solar-system">
+    <img src="https://unsplash.com/photos/qvZzMG3hLQc/download?force=true&w=640" alt="Solar System">
+</section>
+
+<section class="planets">
+    <div class="planet">
+        <img src="https://unsplash.com/photos/AQwrdgtq0aw/download?force=true&w=640" alt="Mercury">
+        <h3>Mercury</h3>
+        <p>Smallest planet, closest to the Sun</p>
+    </div>
+    <div class="planet">
+        <img src="https://unsplash.com/photos/eB7nW6ERfNc/download?force=true&w=640" alt="Venus">
+        <h3>Venus</h3>
+        <p>Similar size to Earth, hottest planet</p>
+    </div>
+    <div class="planet">
+        <img src="https://unsplash.com/photos/T_Oe7rG_sAs/download?force=true&w=640" alt="Earth">
+        <h3>Earth</h3>
+        <p>Our home, the blue planet</p>
+    </div>
+    <div class="planet">
+        <img src="https://unsplash.com/photos/WX4i1Jq_o0Y/download?force=true&w=640" alt="Mars">
+        <h3>Mars</h3>
+        <p>The red planet, potential for life</p>
+    </div>
+</section>
+
+<div class="chatbot" onclick="toggleChat()">
+    <img src="https://unsplash.com/photos/MTZTGvDsHFQ/download?force=true&w=640" alt="Chatbot" style="width: 50px; height: 50px;">
+</div>
+
+<div class="chat-window" id="chatWindow">
+    <header>AI Chatbot</header>
+    <div class="message">Hello! How can I assist you with the Solar System today?</div>
+    <input type="text" placeholder="Ask a question...">
+</div>
+
+<script>
+    function toggleChat() {
+        const chatWindow = document.getElementById('chatWindow');
+        chatWindow.classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>

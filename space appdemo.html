@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System Educational App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+        }
+        header {
+            background: #222;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            padding-top: 80px; /* Space for fixed header */
+        }
+        .section {
+            padding: 40px 20px;
+        }
+        .solar-system {
+            background: url('path-to-solar-system-image.jpg') no-repeat center center;
+            background-size: cover;
+            height: 300px;
+            border-radius: 10px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .solar-system h2 {
+            margin: 0;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .planet-details, .chatbot, .learning-modules {
+            background: #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px auto;
+            max-width: 800px;
+        }
+        .chatbot {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .chatbot button {
+            background: #1a73e8;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        footer {
+            background: #222;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Solar System Explorer</h1>
+    </header>
+    <div class="container">
+        <section class="section solar-system">
+            <h2>Explore the Solar System</h2>
+            <!-- Placeholder for 3D model or interactive element -->
+        </section>
+        <section class="section planet-details">
+            <h2>Planet Details</h2>
+            <p>Select a planet to view detailed information, images, and interactive features.</p>
+            <!-- Placeholder for planet details -->
+        </section>
+        <section class="section chatbot">
+            <h2>AI Chatbot</h2>
+            <p>Ask me anything about the solar system!</p>
+            <button>Chat Now</button>
+            <!-- Placeholder for chatbot interface -->
+        </section>
+        <section class="section learning-modules">
+            <h2>Interactive Learning</h2>
+            <p>Engage with quizzes, simulations, and games to test your knowledge.</p>
+            <!-- Placeholder for interactive modules -->
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Solar System Explorer. All rights reserved.</p>
+    </footer>
+</body>
+</html>
