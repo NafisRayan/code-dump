@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom scrollbar styling */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #A0AEC0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-200 flex items-center justify-center h-screen">
+
+    <!-- Chatbot UI Container -->
+    <div class="w-full max-w-md mx-auto bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden flex flex-col">
+        <!-- Header with Day/Night toggle -->
+        <div class="flex justify-between items-center p-4 bg-gray-100 dark:bg-gray-700">
+            <h1 class="text-lg font-bold">Chatbot</h1>
+            <button id="themeToggle" class="px-3 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                Toggle Night Mode
+            </button>
+        </div>
+
+        <!-- Chat Window -->
+        <div id="chatWindow" class="flex-1 p-4 space-y-4 overflow-y-auto custom-scrollbar bg-gray-50 dark:bg-gray-900">
+            <!-- Placeholder messages -->
+            <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg text-gray-700 dark:text-gray-200 self-start">
+                Hi there! How can I help you today?
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="p-4 bg-gray-100 dark:bg-gray-700 flex">
+            <input id="userInput" type="text" class="flex-1 p-2 rounded-lg border border-gray-300 dark:bg-gray-600 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Type your message..." />
+            <button id="sendMessage" class="ml-3 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">Send</button>
+        </div>
+    </div>
+
+    <!-- Script to handle chatbot functionality and theme toggle -->
+    <script>
+        const chatWindow = document.getElementById('chatWindow');
+        const userInput = document.getElementById('userInput');
+        const sendMessageButton = document.getElementById('sendMessage');
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Scroll to the bottom of the chat window
+        function scrollToBottom() {
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        // Bot replies to user input
+        function botReply(userMessage) {
+            const botResponse = document.createElement('div');
+            botResponse.className = 'bg-gray-100 dark:bg-gray-700 p-3 rounded-lg text-gray-700 dark:text-gray-200 self-start';
+            botResponse.innerText = `You said: "${userMessage}"`;
+
+            // Simulating bot thinking for a second
+            setTimeout(() => {
+                chatWindow.appendChild(botResponse);
+                scrollToBottom();
+            }, 1000);
+        }
+
+        // Send user message and get bot response
+        function sendMessage() {
+            const message = userInput.value.trim();
+
+            if (message) {
+                // Create user message element
+                const userMessage = document.createElement('div');
+                userMessage.className = 'bg-blue-500 text-white p-3 rounded-lg self-end';
+                userMessage.innerText = message;
+
+                // Append user message to chat window
+                chatWindow.appendChild(userMessage);
+                userInput.value = ''; // Clear input field
+                scrollToBottom();
+
+                // Call bot response function
+                botReply(message);
+            }
+        }
+
+        // Toggle between light and dark mode
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+        });
+
+        // Event listener for 'Send' button
+        sendMessageButton.addEventListener('click', sendMessage);
+
+        // Event listener for 'Enter' key press
+        userInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+
+</body>
+</html>

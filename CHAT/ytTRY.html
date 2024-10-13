@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Clone</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow-sm">
+    <div class="container mx-auto py-4 flex justify-between items-center">
+      <div class="flex items-center">
+        <svg class="h-8 w-8 text-red-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 8l6 4-6 4V8z" fill="currentColor"/>
+        </svg>
+        <h1 class="text-xl font-bold ml-2">YouTube Clone</h1>
+      </div>
+      <div class="flex items-center">
+        <input type="text" id="searchInput" class="bg-gray-200 rounded-lg px-4 py-2 mr-2 focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Search">
+        <button id="searchButton" class="bg-red-500 text-white rounded-lg px-4 py-2 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500">Search</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="videoGrid">
+    <!-- Video cards will be dynamically inserted here -->
+  </main>
+
+  <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white rounded-lg p-8 w-full max-w-4xl">
+      <iframe id="videoPlayer" width="640" height="390" frameborder="0" allowfullscreen></iframe>
+      <button id="closeModal" class="mt-4 bg-red-500 text-white rounded-lg px-4 py-2 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // Mock video data
+    const mockVideos = [
+      {
+        id: 'video1',
+        title: 'Video Title 1',
+        thumbnail: 'https://via.placeholder.com/320x180',
+        views: '100K',
+        timestamp: '1 day ago',
+        channel: 'Channel Name 1',
+        videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+      },
+      {
+        id: 'video2',
+        title: 'Video Title 2',
+        thumbnail: 'https://via.placeholder.com/320x180',
+        views: '50K',
+        timestamp: '2 days ago',
+        channel: 'Channel Name 2',
+        videoUrl: 'https://www.youtube.com/embed/jNQXAC9IVRw'
+      },
+      // Add more mock videos here
+    ];
+
+    const videoGrid = document.getElementById('videoGrid');
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const videoModal = document.getElementById('videoModal');
+    const videoPlayer = document.getElementById('videoPlayer');
+    const closeModal = document.getElementById('closeModal');
+
+    function createVideoCard(video) {
+      const card = document.createElement('div');
+      card.className = 'bg-white rounded-lg shadow-sm cursor-pointer';
+      card.innerHTML = `
+        <img src="${video.thumbnail}" alt="Video Thumbnail" class="rounded-t-lg w-full h-48 object-cover">
+        <div class="p-4">
+          <h2 class="text-lg font-bold mb-2">${video.title}</h2>
+          <p class="text-gray-600 mb-4">${video.channel}</p>
+          <p class="text-gray-500">${video.views} views • ${video.timestamp}</p>
+        </div>
+      `;
+      card.addEventListener('click', () => playVideo(video.videoUrl));
+      return card;
+    }
+
+    function playVideo(videoUrl) {
+      videoModal.classList.remove('hidden');
+      videoPlayer.src = videoUrl;
+    }
+
+    closeModal.addEventListener('click', () => {
+      videoModal.classList.add('hidden');
+      videoPlayer.src = '';
+    });
+
+    function displayVideos(videos) {
+      videoGrid.innerHTML = '';
+      videos.forEach(video => {
+        const card = createVideoCard(video);
+        videoGrid.appendChild(card);
+      });
+    }
+
+    // Initial load with mock data
+    displayVideos(mockVideos);
+
+    // Mock search functionality (just filters by title)
+    searchButton.addEventListener('click', () => {
+      const query = searchInput.value.toLowerCase();
+      const filteredVideos = mockVideos.filter(video => video.title.toLowerCase().includes(query));
+      displayVideos(filteredVideos);
+    });
+
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        const query = searchInput.value.toLowerCase();
+        const filteredVideos = mockVideos.filter(video => video.title.toLowerCase().includes(query));
+        displayVideos(filteredVideos);
+      }
+    });
+  </script>
+</body>
+</html>
