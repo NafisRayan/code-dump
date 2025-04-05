@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobalTradeHub - Wholesale Marketplace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS */
+        .category-card:hover .category-overlay { opacity: 1; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .search-bar:focus { outline: none; box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5); }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        
+        /* Page transitions */
+        .page { display: none; }
+        .page.active { display: block; }
+        
+        /* Modal */
+        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); }
+        .modal-content { background-color: #fefefe; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 600px; border-radius: 8px; }
+        .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+        
+        /* Product image hover effect */
+        .product-image-container { position: relative; overflow: hidden; }
+        .product-image { transition: transform 0.3s ease; }
+        .product-card:hover .product-image { transform: scale(1.05); }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .search-container { order: 3; width: 100%; margin-top: 1rem; }
+            .header-content { flex-direction: column; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+            .category-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Top Bar -->
+    <div class="bg-blue-900 text-white text-sm py-2 px-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-blue-200" onclick="showPage('buyer-central')">Buyer Central</a>
+                <a href="#" class="hover:text-blue-200" onclick="showPage('seller-central')">Seller Central</a>
+                <a href="#" class="hover:text-blue-200" onclick="showPage('help-center')">Help Center</a>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-blue-200"><i class="fas fa-globe mr-1"></i> English</a>
+                <a href="#" class="hover:text-blue-200"><i class="fas fa-dollar-sign mr-1"></i> USD</a>
+                <a href="#" class="hover:text-blue-200" onclick="showLoginModal()"><i class="fas fa-user mr-1"></i> Sign In</a>
+                <a href="#" class="hover:text-blue-200" onclick="showPage('register')"><i class="fas fa-store mr-1"></i> Join Free</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto py-4 px-4">
+            <div class="flex items-center justify-between header-content">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-blue-800 flex items-center" onclick="showPage('home')">
+                        <i class="fas fa-globe-americas text-blue-600 mr-2"></i>
+                        <span>GlobalTradeHub</span>
+                    </a>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="flex-1 mx-8 search-container">
+                    <div class="relative">
+                        <div class="flex">
+                            <select id="search-category" class="bg-gray-100 border border-r-0 border-gray-300 text-gray-700 py-2 px-4 rounded-l-lg focus:outline-none">
+                                <option>All Categories</option>
+                                <option>Electronics</option>
+                                <option>Home & Garden</option>
+                                <option>Apparel</option>
+                                <option>Machinery</option>
+                                <option>Beauty & Personal Care</option>
+                            </select>
+                            <input type="text" id="search-input" placeholder="Search for products, suppliers..." class="w-full border border-gray-300 py-2 px-4 focus:outline-none search-bar">
+                            <button class="bg-blue-600 text-white py-2 px-6 rounded-r-lg hover:bg-blue-700 transition" onclick="performSearch()">
+                                <i class="fas fa-search"></i> Search
+                            </button>
+                        </div>
+                        <div class="absolute mt-1 bg-white w-full shadow-lg rounded-lg hidden" id="search-suggestions">
+                            <div class="p-2 border-b">
+                                <p class="text-gray-500">Popular Searches:</p>
+                                <div class="flex flex-wrap mt-1">
+                                    <a href="#" class="text-blue-600 mr-3 mb-1 text-sm hover:underline" onclick="searchFor('smartphone')">smartphone</a>
+                                    <a href="#" class="text-blue-600 mr-3 mb-1 text-sm hover:underline" onclick="searchFor('led lights')">led lights</a>
+                                    <a href="#" class="text-blue-600 mr-3 mb-1 text-sm hover:underline" onclick="searchFor('face mask')">face mask</a>
+                                    <a href="#" class="text-blue-600 mr-3 mb-1 text-sm hover:underline" onclick="searchFor('solar panel')">solar panel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Icons -->
+                <div class="flex items-center space-x-6">
+                    <a href="#" class="text-gray-700 hover:text-blue-600 relative" onclick="showPage('wishlist')">
+                        <i class="fas fa-heart text-xl"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center" id="wishlist-count">3</span>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 relative" onclick="showPage('cart')">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center" id="cart-count">5</span>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600" onclick="showPage('messages')">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600" onclick="showPage('notifications')">
+                        <i class="fas fa-bell text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="bg-blue-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between nav-links">
+                <div class="dropdown relative">
+                    <button class="bg-blue-700 hover:bg-blue-600 py-3 px-6 flex items-center">
+                        <i class="fas fa-bars mr-2"></i>
+                        <span>All Categories</span>
+                        <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 mt-0 w-64 bg-white shadow-lg rounded-b-lg hidden z-50">
+                        <a href="#" class="block px-4 py-3 text-gray-800 hover:bg-blue-50 border-b flex items-center" onclick="showCategory('electronics')">
+                            <i class="fas fa-mobile-alt text-blue-600 mr-3"></i>
+                            <span>Electronics</span>
+                            <i class="fas fa-chevron-right ml-auto text-gray-400"></i>
+                        </a>
+                        <a href="#" class="block px-4 py-3 text-gray-800 hover:bg-blue-50 border-b flex items-center" onclick="showCategory('home-garden')">
+                            <i class="fas fa-home text-blue-600 mr-3"></i>
+                            <span>Home & Garden</span>
+                            <i class="fas fa-chevron-right ml-auto text-gray-400"></i>
+                        </a>
+                        <a href="#" class="block px-4 py-3 text-gray-800 hover:bg-blue-50 border-b flex items-center" onclick="showCategory('apparel')">
+                            <i class="fas fa-tshirt text-blue-600 mr-3"></i>
+                            <span>Apparel</span>
+                            <i class="fas fa-chevron-right ml-auto text-gray-400"></i>
+                        </a>
+                        <a href="#" class="block px-4 py-3 text-gray-800 hover:bg-blue-50 border-b flex items-center" onclick="showCategory('machinery')">
+                            <i class="fas fa-cogs text-blue-600 mr-3"></i>
+                            <span>Machinery</span>
+                            <i class="fas fa-chevron-right ml-auto text-gray-400"></i>
+                        </a>
+                        <a href="#" class="block px-4 py-3 text-gray-800 hover:bg-blue-50 border-b flex items-center" onclick="showCategory('beauty')">
+                            <i class="fas fa-spa text-blue-600 mr-3"></i>
+                            <span>Beauty & Personal Care</span>
+                            <i class="fas fa-chevron-right ml-auto text-gray-400"></i>
+                        </a>
+                        <a href="#" class="block px-4 py-3 text-gray-800 hover:bg-blue-50 flex items-center" onclick="showPage('categories')">
+                            <i class="fas fa-boxes text-blue-600 mr-3"></i>
+                            <span>All Categories</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="py-3 hover:bg-blue-700 px-2" onclick="showPage('home')">Home</a>
+                    <a href="#" class="py-3 hover:bg-blue-700 px-2" onclick="showPage('ready-to-ship')">Ready to Ship</a>
+                    <a href="#" class="py-3 hover:bg-blue-700 px-2" onclick="showPage('trade-shows')">Trade Shows</a>
+                    <a href="#" class="py-3 hover:bg-blue-700 px-2" onclick="showPage('suppliers')">Supplier Discovery</a>
+                    <a href="#" class="py-3 hover:bg-blue-700 px-2" onclick="showPage('buyer-protection')">Buyer Protection</a>
+                    <a href="#" class="py-3 hover:bg-blue-700 px-2" onclick="showPage('help-center')">Help</a>
+                </div>
+                
+                <div>
+                    <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-medium py-2 px-4 rounded" onclick="showPage('app-download')">
+                        <i class="fas fa-plus-circle mr-1"></i> Get the App
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area - Pages will be loaded here -->
+    <main id="main-content">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <!-- Hero Banner -->
+            <div class="relative bg-gray-100">
+                <div class="container mx-auto">
+                    <div class="flex">
+                        <!-- Sidebar Categories -->
+                        <div class="w-64 bg-white shadow-md hidden md:block">
+                            <div class="p-4 border-b">
+                                <h3 class="font-medium text-gray-800">Popular Categories</h3>
+                            </div>
+                            <div class="divide-y">
+                                <a href="#" class="block p-3 hover:bg-blue-50 flex items-center" onclick="showCategory('electronics')">
+                                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=30&h=30&q=80" class="w-8 h-8 object-contain mr-3" alt="Electronics">
+                                    <span>Electronics</span>
+                                    <i class="fas fa-chevron-right ml-auto text-gray-400 text-xs"></i>
+                                </a>
+                                <a href="#" class="block p-3 hover:bg-blue-50 flex items-center" onclick="showCategory('home-garden')">
+                                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=30&h=30&q=80" class="w-8 h-8 object-contain mr-3" alt="Home & Garden">
+                                    <span>Home & Garden</span>
+                                    <i class="fas fa-chevron-right ml-auto text-gray-400 text-xs"></i>
+                                </a>
+                                <a href="#" class="block p-3 hover:bg-blue-50 flex items-center" onclick="showCategory('apparel')">
+                                    <img src="https://images.unsplash.com/photo-1525507119028-2374a1ad3d5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=30&h=30&q=80" class="w-8 h-8 object-contain mr-3" alt="Apparel">
+                                    <span>Apparel</span>
+                                    <i class="fas fa-chevron-right ml-auto text-gray-400 text-xs"></i>
+                                </a>
+                                <a href="#" class="block p-3 hover:bg-blue-50 flex items-center" onclick="showCategory('machinery')">
+                                    <img src="https://images.unsplash.com/photo-158109345093-834c8d9d281a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=30&h=30&q=80" class="w-8 h-8 object-contain mr-3" alt="Machinery">
+                                    <span>Machinery</span>
+                                    <i class="fas fa-chevron-right ml-auto text-gray-400 text-xs"></i>
+                                </a>
+                                <a href="#" class="block p-3 hover:bg-blue-50 flex items-center" onclick="showCategory('beauty')">
+                                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=30&h=30&q=80" class="w-8 h-8 object-contain mr-3" alt="Beauty">
+                                    <span>Beauty & Personal Care</span>
+                                    <i class="fas fa-chevron-right ml-auto text-gray-400 text-xs"></i>
+                                </a>
+                                <a href="#" class="block p-3 hover:bg-blue-50 flex items-center" onclick="showCategory('sports')">
+                                    <img src="https://images.unsplash.com/photo-1579952363871-0f8511af3f01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=30&h=30&q=80" class="w-8 h-8 object-contain mr-3" alt="Sports">
+                                    <span>Sports & Entertainment</span>
+                                    <i class="fas fa-chevron-right ml-auto text-gray-400 text-xs"></i>
+                                </a>
+                                <a href="#" class="block p-3 hover:bg-blue-50 flex items-center" onclick="showCategory('toys')">
+                                    <img src="https://images.unsplash.com/photo-1596461404969-9b70a3b3ae86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=30&h=30&q=80" class="w-8 h-8 object-contain mr-3" alt="Toys">
+                                    <span>Toys & Hobbies</span>
+                                    <i class="fas fa-chevron-right ml-auto text-gray-400 text-xs"></i>
+                                </a>
+                                <a href="#" class="block p-3 hover:bg-blue-50 flex items-center" onclick="showCategory('health')">
+                                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=30&h=30&q=80" class="w-8 h-8 object-contain mr-3" alt="Health">
+                                    <span>Health & Medical</span>
+                                    <i class="fas fa-chevron-right ml-auto text-gray-400 text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Main Carousel -->
+                        <div class="flex-1 bg-gray-200 h-96 relative overflow-hidden">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=400&q=80" alt="Banner" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                                <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100"></button>
+                                <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100"></button>
+                                <button class="w-3 h-3 rounded-full bg-white bg-opacity-100"></button>
+                                <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Categories -->
+            <div class="bg-white py-6 shadow-sm">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-xl font-semibold mb-4">Browse by Category</h2>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 category-grid">
+                        <a href="#" class="category-card border rounded-lg overflow-hidden hover:shadow-md transition duration-300 relative" onclick="showCategory('electronics')">
+                            <div class="p-4 flex flex-col items-center">
+                                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&h=80&q=80" class="w-16 h-16 object-contain mb-2" alt="Electronics">
+                                <span class="text-sm text-center">Electronics</span>
+                            </div>
+                            <div class="category-overlay absolute inset-0 bg-black bg-opacity-10 opacity-0 transition duration-300 flex items-center justify-center">
+                                <span class="bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-medium">Shop Now</span>
+                            </div>
+                        </a>
+                        <a href="#" class="category-card border rounded-lg overflow-hidden hover:shadow-md transition duration-300 relative" onclick="showCategory('home-garden')">
+                            <div class="p-4 flex flex-col items-center">
+                                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&h=80&q=80" class="w-16 h-16 object-contain mb-2" alt="Home & Garden">
+                                <span class="text-sm text-center">Home & Garden</span>
+                            </div>
+                            <div class="category-overlay absolute inset-0 bg-black bg-opacity-10 opacity-0 transition duration-300 flex items-center justify-center">
+                                <span class="bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-medium">Shop Now</span>
+                            </div>
+                        </a>
+                        <a href="#" class="category-card border rounded-lg overflow-hidden hover:shadow-md transition duration-300 relative" onclick="showCategory('apparel')">
+                            <div class="p-4 flex flex-col items-center">
+                                <img src="https://images.unsplash.com/photo-1525507119028-2374a1ad3d5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&h=80&q=80" class="w-16 h-16 object-contain mb-2" alt="Apparel">
+                                <span class="text-sm text-center">Apparel</span>
+                            </div>
+                            <div class="category-overlay absolute inset-0 bg-black bg-opacity-10 opacity-0 transition duration-300 flex items-center justify-center">
+                                <span class="bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-medium">Shop Now</span>
+                            </div>
+                        </a>
+                        <a href="#" class="category-card border rounded-lg overflow-hidden hover:shadow-md transition duration-300 relative" onclick="showCategory('machinery')">
+                            <div class="p-4 flex flex-col items-center">
+                                <img src="https://images.unsplash.com/photo-158109345093-834c8d9d281a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&h=80&q=80" class="w-16 h-16 object-contain mb-2" alt="Machinery">
+                                <span class="text-sm text-center">Machinery</span>
+                            </div>
+                            <div class="category-overlay absolute inset-0 bg-black bg-opacity-10 opacity-0 transition duration-300 flex items-center justify-center">
+                                <span class="bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-medium">Shop Now</span>
+                            </div>
+                        </a>
+                        <a href="#" class="category-card border rounded-lg overflow-hidden hover:shadow-md transition duration-300 relative" onclick="showCategory('beauty')">
+                            <div class="p-4 flex flex-col items-center">
+                                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&h=80&q=80" class="w-16 h-16 object-contain mb-2" alt="Beauty">
+                                <span class="text-sm text-center">Beauty & Personal Care</span>
+                            </div>
+                            <div class="category-overlay absolute inset-0 bg-black bg-opacity-10 opacity-0 transition duration-300 flex items-center justify-center">
+                                <span class="bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-medium">Shop Now</span>
+                            </div>
+                        </a>
+                        <a href="#" class="category-card border rounded-lg overflow-hidden hover:shadow-md transition duration-300 relative" onclick="showCategory('sports')">
+                            <div class="p-4 flex flex-col items-center">
+                                <img src="https://images.unsplash.com/photo-1579952363871-0f8511af3f01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&h=80&q=80" class="w-16 h-16 object-contain mb-2" alt="Sports">
+                                <span class="text-sm text-center">Sports & Entertainment</span>
+                            </div>
+                            <div class="category-overlay absolute inset-0 bg-black bg-opacity-10 opacity-0 transition duration-300 flex items-center justify-center">
+                                <span class="bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-medium">Shop Now</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Products -->
+            <div class="bg-gray-50 py-8">
+                <div class="container mx-auto px-4">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold">Featured Products</h2>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium" onclick="showPage('all-products')">View All <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <!-- Product 1 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <div class="product-image-container h-48 bg-gray-100">
+                                <img src="https://images.unsplash.com/photo-1546868871-7041f2d55e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80" alt="Smartphone" class="w-full h-full object-contain product-image">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium text-gray-800 mb-1">Latest Smartphone X Pro</h3>
+                                <div class="flex items-center mb-2">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">(128 reviews)</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-gray-500 line-through text-sm">$899.99</span>
+                                        <span class="text-blue-600 font-bold ml-2">$749.99</span>
+                                    </div>
+                                    <span class="text-green-600 text-sm font-medium">MOQ: 10 pieces</span>
+                                </div>
+                                <div class="mt-3 flex justify-between">
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">Add to Cart</button>
+                                    <button class="text-gray-500 hover:text-red-500 px-3 py-1 rounded text-sm"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 2 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <div class="product-image-container h-48 bg-gray-100">
+                                <img src="https://images.unsplash.com/photo-1556228578-8c6e6a7a40ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80" alt="LED Lights" class="w-full h-full object-contain product-image">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium text-gray-800 mb-1">RGB LED Strip Lights</h3>
+                                <div class="flex items-center mb-2">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">(87 reviews)</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-blue-600 font-bold">$12.99</span>
+                                    </div>
+                                    <span class="text-green-600 text-sm font-medium">MOQ: 50 pieces</span>
+                                </div>
+                                <div class="mt-3 flex justify-between">
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">Add to Cart</button>
+                                    <button class="text-gray-500 hover:text-red-500 px-3 py-1 rounded text-sm"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 3 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <div class="product-image-container h-48 bg-gray-100">
+                                <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80" alt="Wireless Earbuds" class="w-full h-full object-contain product-image">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium text-gray-800 mb-1">Wireless Bluetooth Earbuds</h3>
+                                <div class="flex items-center mb-2">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">(256 reviews)</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-gray-500 line-through text-sm">$59.99</span>
+                                        <span class="text-blue-600 font-bold ml-2">$39.99</span>
+                                    </div>
+                                    <span class="text-green-600 text-sm font-medium">MOQ: 20 pieces</span>
+                                </div>
+                                <div class="mt-3 flex justify-between">
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">Add to Cart</button>
+                                    <button class="text-gray-500 hover:text-red-500 px-3 py-1 rounded text-sm"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 4 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <div class="product-image-container h-48 bg-gray-100">
+                                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80" alt="Smart Watch" class="w-full h-full object-contain product-image">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium text-gray-800 mb-1">Smart Watch Pro 2023</h3>
+                                <div class="flex items-center mb-2">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">(192 reviews)</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-blue-600 font-bold">$129.99</span>
+                                    </div>
+                                    <span class="text-green-600 text-sm font-medium">MOQ: 15 pieces</span>
+                                </div>
+                                <div class="mt-3 flex justify-between">
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">Add to Cart</button>
+                                    <button class="text-gray-500 hover:text-red-500 px-3 py-1 rounded text-sm"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ready to Ship Section -->
+            <div class="bg-white py-8">
+                <div class="container mx-auto px-4">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold">Ready to Ship</h2>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium" onclick="showPage('ready-to-ship')">View All <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <!-- Product 5 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <div class="product-image-container h-48 bg-gray-100">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80" alt="Running Shoes" class="w-full h-full object-contain product-image">
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="font-medium text-gray-800">Premium Running Shoes</h3>
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Ready to Ship</span>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">(143 reviews)</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-blue-600 font-bold">$79.99</span>
+                                    </div>
+                                    <span class="text-green-600 text-sm font-medium">MOQ: 1 piece</span>
+                                </div>
+                                <div class="mt-3 flex justify-between">
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">Add to Cart</button>
+                                    <button class="text-gray-500 hover:text-red-500 px-3 py-1 rounded text-sm"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 6 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <div class="product-image-container h-48 bg-gray-100">
+                                <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80" alt="Camera" class="w-full h-full object-contain product-image">
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="font-medium text-gray-800">4K Digital Camera</h3>
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Ready to Ship</span>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">(98 reviews)</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-gray-500 line-through text-sm">$299.99</span>
+                                        <span class="text-blue-600 font-bold ml-2">$249.99</span>
+                                    </div>
+                                    <span class="text-green-600 text-sm font-medium">MOQ: 1 piece</span>
+                                </div>
+                                <div class="mt-3 flex justify-between">
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">Add to Cart</button>
+                                    <button class="text-gray-500 hover:text-red-500 px-3 py-1 rounded text-sm"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 7 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <div class="product-image-container h-48 bg-gray-100">
+                                <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80" alt="Backpack" class="w-full h-full object-contain product-image">
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="font-medium text-gray-800">Travel Backpack</h3>
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Ready to Ship</span>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">(321 reviews)</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-blue-600 font-bold">$45.99</span>
+                                    </div>
+                                    <span class="text-green-600 text-sm font-medium">MOQ: 1 piece</span>
+                                </div>
+                                <div class="mt-3 flex justify-between">
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">Add to Cart</button>
+                                    <button class="text-gray-500 hover:text-red-500 px-3 py-1 rounded text-sm"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 8 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <div class="product-image-container h-48 bg-gray-100">
+                                <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80" alt="Perfume" class="w-full h-full object-contain product-image">
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="font-medium text-gray-800">Luxury Perfume Set</h3>
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Ready to Ship</span>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">(76 reviews)</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-gray-500 line-through text-sm">$89.99</span>
+                                        <span class="text-blue-600 font-bold ml-2">$69.99</span>
+                                    </div>
+                                    <span class="text-green-600 text-sm font-medium">MOQ: 1 piece</span>
+                                </div>
+                                <div class="mt-3 flex justify-between">
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">Add to Cart</button>
+                                    <button class="text-gray-500 hover:text-red-500 px-3 py-1 rounded text-sm"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="bg-gray-100 py-8">
+                <div class="container mx-auto px-4">
+                    <div class="flex flex-wrap justify-center items-center gap-8">
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-shield-alt text-4xl text-blue-600 mb-2"></i>
+                            <span class="font-medium">Buyer Protection</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-truck text-4xl text-blue-600 mb-2"></i>
+                            <span class="font-medium">Fast Shipping</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-undo-alt text-4xl text-blue-600 mb-2"></i>
+                            <span class="font-medium">Easy Returns</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-headset text-4xl text-blue-600 mb-2"></i>
+                            <span class="font-medium">24/7 Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Supplier Showcase -->
+            <div class="bg-white py-8">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-2xl font-bold mb-6">Trusted Suppliers</h2>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <!-- Supplier 1 -->
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
+                            <div class="p-4 flex items-center">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&h=80&q=80" class="w-16 h-16 rounded-full object-cover mr-4" alt="Supplier">
+                                <div>
+                                    <h3 class="font-medium">TechGadgets Inc.</h3>
+                                    <p class="text-gray-500 text-sm">Gold Supplier</p>
+                                    <div class="flex text-yellow-400 text-xs mt-1">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border-t p-4">
+                                <p class="text-sm text-gray-600 mb-2">Main Products: Electronics, Smart Devices</p>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium" onclick="showPage('supplier-techgadgets')">View Profile <i class="fas fa-arrow-right ml-1"></i></a>
+                            </div>
+                        </div>
+                        
+                        <!-- Supplier 2 -->
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
+                            <div class="p-4 flex items-center">
+                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&h=80&q=80" class="w-16 h-16 rounded-full object-cover mr-4" alt="Supplier">
+                                <div>
+                                    <h3 class="font-medium">FashionHub Ltd.</h3>
+                                    <p class="text-gray-500 text-sm">Verified Supplier</p>
+                                    <div class="flex text-yellow-400 text-xs mt-1">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border-t p-4">
+                                <p class="text-sm text-gray-600 mb-2">Main Products: Apparel, Accessories</p>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium" onclick="showPage('supplier-fashionhub')">View Profile <i class="fas fa-arrow-right ml-1"></i></a>
+                            </div>
+                        </div>
+                        
+                        <!-- Supplier 3 -->
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
+                            <div class="p-4 flex items-center">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&h=80&q=80" class="w-16 h-16 rounded-full object-cover mr-4" alt="Supplier">
+                                <div>
+                                    <h3 class="font-medium">HomeEssentials Co.</h3>
+                                    <p class="text-gray-500 text-sm">Gold Supplier</p>
+                                    <div class="flex text-yellow-400 text-xs mt-1">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border-t p-4">
+                                <p class="text-sm text-gray-600 mb-2">Main Products: Home & Garden</p>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium" onclick="showPage('supplier-homeessentials')">View Profile <i class="fas fa-arrow-right ml-1"></i></a>
+                            </div>
+                        </div>
+                        
+                        <!-- Supplier 4 -->
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
+                            <div class="p-4 flex items-center">
+                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&h=80&q=80" class="w-16 h-16 rounded-full object-cover mr-4" alt="Supplier">
+                                <div>
+                                    <h3 class="font-medium">BeautyGlow Inc.</h3>
+                                    <p class="text-gray-500 text-sm">Verified Supplier</p>
+                                    <div class="flex text-yellow-400 text-xs mt-1">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border-t p-4">
+                                <p class="text-sm text-gray-600 mb-2">Main Products: Beauty & Personal Care</p>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium" onclick="showPage('supplier-beautyglow')">View Profile <i class="fas fa-arrow-right ml-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="bg-blue-800 text-white py-12">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-2xl font-bold mb-4">Stay Updated with Our Latest Offers</h2>
+                    <p class="mb-6 max-w-2xl mx-auto">Subscribe to our newsletter and get exclusive deals, product updates, and wholesale opportunities directly to your inbox.</p>
+                    <div class="flex max-w-md mx-auto">
+                        <input type="email" placeholder="Your email address" class="flex-1 px-4 py-3 rounded-l-lg focus:outline-none text-gray-800">
+                        <button class="bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-bold px-6 py-3 rounded-r-lg">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Pages (initially hidden) -->
+        <div id="categories" class="page">
+            <div class="container mx-auto py-8 px-4">
+                <h1 class="text-3xl font-bold mb-6">All Categories</h1>
+                <!-- Categories content would go here -->
+            </div>
+        </div>
+
+        <div id="products" class="page">
+            <div class="container mx-auto py-8 px-4">
+                <h1 class="text-3xl font-bold mb-6">Products</h1>
+                <!-- Products content would go here -->
+            </div>
+        </div>
+
+        <div id="cart" class="page">
+            <div class="container mx-auto py-8 px-4">
+                <h1 class="text-3xl font-bold mb-6">Your Cart</h1>
+                <!-- Cart content would go here -->
+            </div>
+        </div>
+
+        <!-- Add more pages as needed -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">GlobalTradeHub</h3>
+                    <p class="text-gray-400 mb-4">The world's leading wholesale marketplace connecting buyers and suppliers worldwide.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Buyer Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white" onclick="showPage('buyer-protection')">Buyer Protection</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white" onclick="showPage('help-center')">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white" onclick="showPage('payment-methods')">Payment Methods</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white" onclick="showPage('shipping-options')">Shipping Options</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white" onclick="showPage('dispute-resolution')">Dispute Resolution</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Supplier Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white" onclick="showPage('supplier-membership')">Supplier Membership</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white" onclick="showPage('learning-center')">Learning Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white" onclick="showPage('logistics-services')">Logistics Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white" onclick="showPage('marketing-solutions')">Marketing Solutions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white" onclick="showPage('trade-assurance')">Trade Assurance</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400"><i class="fas fa-map-marker-alt mr-3"></i> 123 Trade Center, Business District, Global City</li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-phone-alt mr-3"></i> +1 (800) 123-4567</li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-envelope mr-3"></i> support@globaltradehub.com</li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-clock mr-3"></i> 24/7 Customer Service</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
+                        &copy; 2023 GlobalTradeHub. All rights reserved.
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('login-modal')">&times;</span>
+            <h2 class="text-2xl font-bold mb-6">Sign In</h2>
+            <form>
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="email">Email</label>
+                    <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 mb-2" for="password">Password</label>
+                    <input type="password" id="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <button type="button" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 mb-4">Sign In</button>
+                <div class="text-center">
+                    <a href="#" class="text-blue-600 hover:text-blue-800 text-sm">Forgot password?</a>
+                </div>
+                <div class="border-t mt-6 pt-4 text-center">
+                    <p class="text-gray-600">New to GlobalTradeHub? <a href="#" class="text-blue-600 hover:text-blue-800" onclick="showPage('register')">Join Free</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Show page function
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Show category function
+        function showCategory(categoryId) {
+            showPage('products');
+            // Here you would typically filter products by category
+            console.log('Showing category: ' + categoryId);
+        }
+
+        // Search functions
+        function performSearch() {
+            const searchTerm = document.getElementById('search-input').value;
+            if (searchTerm.trim() !== '') {
+                showPage('products');
+                console.log('Searching for: ' + searchTerm);
+            }
+        }
+
+        function searchFor(term) {
+            document.getElementById('search-input').value = term;
+            performSearch();
+        }
+
+        // Modal functions
+        function showLoginModal() {
+            document.getElementById('login-modal').style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Search input focus event
+        document.getElementById('search-input').addEventListener('focus', function() {
+            document.getElementById('search-suggestions').classList.remove('hidden');
+        });
+
+        // Search input blur event
+        document.getElementById('search-input').addEventListener('blur', function() {
+            setTimeout(() => {
+                document.getElementById('search-suggestions').classList.add('hidden');
+            }, 200);
+        });
+
+        // Dropdown menu functionality
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.addEventListener('mouseleave', function() {
+                this.querySelector('.dropdown-menu').classList.add('hidden');
+            });
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set home page as active by default
+            showPage('home');
+            
+            // Add click event to all dropdown buttons
+            document.querySelectorAll('.dropdown > button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const menu = this.parentElement.querySelector('.dropdown-menu');
+                    menu.classList.toggle('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
