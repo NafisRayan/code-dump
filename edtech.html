@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academy - Online Course</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Add custom styles if needed, or define custom Tailwind config */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;900&family=Rowdies&family=Rubik:wght@900&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #FFFFFF; /* Default background from Figma */
+        }
+        .font-rowdies { font-family: 'Rowdies', cursive; }
+        .font-rubik { font-family: 'Rubik', sans-serif; }
+
+        /* Map Figma colors to utility classes (simplified) */
+        .bg-academy-purple { background-color: #9E5CF2; }
+        .text-academy-purple { color: #9E5CF2; }
+        .bg-academy-light-purple { background-color: rgba(158, 92, 242, 0.05); } /* fill_EFQ7BL */
+        .bg-academy-light-purple-2 { background-color: rgba(158, 92, 242, 0.1); } /* fill_E0UG0K */
+        .bg-academy-light-gray { background-color: #FAFAFA; } /* fill_Z0RV4F */
+        .bg-academy-gray { background-color: #F5F5F5; } /* fill_3YCZ9H */
+        .bg-academy-dark { background-color: #080808; } /* fill_4K4XSH */
+        .text-academy-dark { color: #080808; }
+        .text-academy-gray-dark { color: #3E3232; } /* fill_NK2NLM */
+        .text-academy-gray { color: rgba(62, 50, 50, 0.75); } /* fill_ALAD0T */
+        .text-academy-gray-light { color: rgba(8, 8, 8, 0.5); } /* fill_W4NGB0 */
+        .text-academy-gray-lighter { color: rgba(8, 8, 8, 0.25); } /* fill_BJCWWC */
+        .text-academy-gray-darker { color: rgba(0, 0, 0, 0.75); } /* fill_M4HYRZ */
+        .border-academy-gray { border-color: #F1F1F1; } /* stroke_RRGJSU */
+        .bg-academy-blue-light { background-color: #F6F7FE; } /* fill_1WINO2 */
+        .bg-academy-blue { background-color: #5A69F2; } /* fill_7A6CRQ */
+        .text-academy-blue { color: #5A69F2; }
+        .bg-academy-orange { background-color: #FF991F; } /* fill_QZDLYC */
+        .text-academy-orange { color: #FF991F; }
+        .bg-academy-orange-light { background-color: rgba(255, 153, 31, 0.05); } /* fill_TBQLOV */
+        .bg-academy-green-light { background-color: #EBFAF5; } /* fill_6N2KFX */
+        .text-academy-green { color: #009E68; } /* fill_2QRZV7 */
+        .bg-academy-red-light { background-color: #FFF5F5; } /* fill_HKALLD */
+        .text-academy-red { color: #FF3C31; } /* fill_LMSFR5 */
+
+        /* Font Awesome Icons Mapping (using classes for clarity) */
+        .icon-lesson::before { content: "\e0bb"; font-family: 'Font Awesome 6 Free'; font-weight: 900; } /*  */
+        .icon-student::before { content: "\f007"; font-family: 'Font Awesome 6 Free'; font-weight: 900; } /*  */
+        .icon-level::before { content: "\f091"; font-family: 'Font Awesome 6 Free'; font-weight: 900; } /*  */
+        .icon-star::before { content: "\f005"; font-family: 'Font Awesome 6 Free'; font-weight: 900; } /*  */
+        .icon-arrow-right::before { content: "\f105"; font-family: 'Font Awesome 6 Free'; font-weight: 900; } /*  */
+        .icon-arrow-left::before { content: "\f104"; font-family: 'Font Awesome 6 Free'; font-weight: 900; } /*  */
+        .icon-filter::before { content: "\f0b0"; font-family: 'Font Awesome 6 Free'; font-weight: 900; } /*  */
+        .icon-search::before { content: "\f002"; font-family: 'Font Awesome 6 Free'; font-weight: 900; } /*  */
+        .icon-notification::before { content: "\f0f3"; font-family: 'Font Awesome 6 Free'; font-weight: 900; } /*  */
+        .icon-chevron-down::before { content: "\f078"; font-family: 'Font Awesome 6 Free'; font-weight: 900; } /*  */
+        .icon-code::before { content: "\f121"; font-family: 'Font Awesome 6 Free'; font-weight: 900; } /* Example for code icon */
+        .icon-design::before { content: "\f1fc"; font-family: 'Font Awesome 6 Free'; font-weight: 900; } /* Example for design icon */
+        .icon-photo::before { content: "\f030"; font-family: 'Font Awesome 6 Free'; font-weight: 900; } /* Example for photo icon */
+
+    </style>
+</head>
+<body class="bg-white text-academy-dark">
+
+    <!-- Header Section (id: 1048:2018) -->
+    <header class="container mx-auto px-4 py-6 flex justify-between items-center">
+        <!-- Header content will go here -->
+        <div class="flex items-center space-x-10">
+            <div class="flex items-center space-x-2">
+                <img src="assets/images/footer-logo.svg" alt="Academy Logo" class="h-8"> <!-- Using footer logo SVG for header too -->
+            </div>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#" class="text-title text-academy-gray-light hover:text-academy-dark flex items-center">Categories <i class="fas fa-chevron-down ml-1 text-xs"></i></a>
+                <a href="#" class="text-title text-academy-gray-light hover:text-academy-dark">Teach</a>
+                <a href="#" class="text-title text-academy-gray-light hover:text-academy-dark">Contact Us</a>
+                <a href="#" class="text-title text-academy-gray-light hover:text-academy-dark">About Us</a>
+            </nav>
+        </div>
+        <div class="flex items-center space-x-4">
+             <div class="relative hidden md:block">
+                 <input type="text" placeholder="Search anything" class="bg-academy-light-gray rounded-xl py-3 px-4 pl-10 w-72 text-link focus:outline-none">
+                 <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-academy-gray-lighter fa-icon-md"></i>
+             </div>
+             <div class="border-l border-academy-gray h-10 mx-2 hidden md:block"></div>
+             <button class="bg-academy-light-purple p-3 rounded-xl">
+                 <i class="fas fa-bell text-academy-purple fa-icon-md"></i>
+             </button>
+             <div class="flex items-center space-x-2">
+                 <img src="assets/images/avatar.png" alt="User Avatar" class="w-12 h-12 rounded-xl object-cover">
+                 <div>
+                     <p class="text-title text-academy-dark">Behzad pashaei</p>
+                     <p class="text-link text-academy-gray-light">ui & ux designer</p>
+                 </div>
+             </div>
+        </div>
+    </header>
+    <hr class="border-academy-gray">
+
+    <main class="container mx-auto px-4 mt-8">
+        <!-- Top Panel Section (id: 1048:1904) -->
+        <section id="top-panel" class="flex flex-col md:flex-row justify-between items-center mb-16">
+            <!-- Left Panel Content -->
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-hero-title text-academy-dark mb-6">
+                    🙌 Hello friends<br>
+                    I am Sofia and we want to start a web design course together. Do you like it too 😍 ?
+                </h1>
+                <div class="flex items-center space-x-8">
+                     <button class="bg-academy-dark text-white text-button py-4 px-6 rounded-lg flex items-center space-x-2 hover:bg-opacity-90">
+                         <span>Start course now</span>
+                         <i class="fas fa-arrow-right"></i>
+                     </button>
+                     <div class="flex items-center space-x-2">
+                         <div class="relative w-16 h-16">
+                            <svg class="w-full h-full" viewBox="0 0 36 36">
+                                <path class="stroke-current text-gray-200" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="25, 75" stroke-linecap="round"/>
+                                <path class="stroke-current text-academy-purple" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="79, 21" stroke-linecap="round" transform="rotate(90 18 18)"/>
+                            </svg>
+                            <span class="absolute inset-0 flex items-center justify-center text-score text-academy-dark">79%</span>
+                         </div>
+                         <span class="bg-academy-orange-light text-academy-orange text-button px-3 py-1 rounded-full">booked</span>
+                     </div>
+                </div>
+            </div>
+            <!-- Right Panel Image -->
+            <div class="md:w-1/2 relative">
+                 <img src="assets/images/hero-image.png" alt="Hero Image" class="w-full h-auto">
+                 <span class="absolute top-10 left-10 text-ui text-academy-purple opacity-50">UI &</span>
+                 <span class="absolute bottom-10 right-10 text-ux text-white" style="text-shadow: 0 0 5px rgba(0,0,0,0.3); -webkit-text-stroke: 2px white;">& UX</span>
+            </div>
+        </section>
+
+        <!-- Search Panel Section (id: 1048:1896) -->
+        <section id="search-panel" class="text-center mb-16">
+            <h2 class="text-search-title text-academy-dark mb-4">Search among 58340 courses and find your favorite course</h2>
+            <div class="flex justify-center items-center space-x-4 mb-4">
+                 <div class="relative w-full max-w-2xl">
+                     <input type="text" placeholder="Search anything" class="bg-academy-light-gray rounded-xl py-4 px-5 pl-12 w-full text-link focus:outline-none border border-academy-gray">
+                     <i class="fas fa-search absolute left-5 top-1/2 transform -translate-y-1/2 text-academy-gray-lighter fa-icon-md"></i>
+                     <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-academy-dark text-white text-button px-6 py-2 rounded-lg hover:bg-opacity-90">
+                         Categories
+                     </button>
+                 </div>
+            </div>
+            <p class="text-search-sub text-academy-gray">Or view the following courses...</p>
+        </section>
+
+        <!-- Top Categories Section (id: 1048:1980) -->
+        <section id="top-categories" class="mb-16 relative">
+             <div class="flex justify-center space-x-12">
+                 <!-- Category Panel 1 -->
+                 <div class="flex items-center space-x-4">
+                     <div class="bg-academy-green-light p-6 rounded-xl flex items-center justify-center w-[67px] h-[67px]"><img src="assets/images/icon-code.svg" alt="Code Icon" class="h-8"></div>
+                     <div class="flex flex-col space-y-3">
+                         <button class="bg-academy-light-gray text-score px-8 py-5 rounded-xl hover:bg-gray-200">Python</button>
+                         <button class="bg-academy-light-gray text-score px-8 py-5 rounded-xl hover:bg-gray-200">React</button>
+                         <button class="bg-academy-light-gray text-score px-8 py-5 rounded-xl hover:bg-gray-200">Unity</button>
+                     </div>
+                 </div>
+                 <!-- Category Panel 2 -->
+                 <div class="flex items-center space-x-4">
+                     <div class="bg-academy-light-purple p-6 rounded-xl flex items-center justify-center w-[67px] h-[67px]"><img src="assets/images/icon-design.svg" alt="Design Icon" class="h-8"></div>
+                     <div class="flex flex-col space-y-3">
+                         <button class="bg-academy-light-gray text-score px-8 py-5 rounded-xl hover:bg-gray-200">ui & ux</button>
+                         <button class="bg-academy-light-gray text-score px-8 py-5 rounded-xl hover:bg-gray-200">vector</button>
+                     </div>
+                 </div>
+                 <!-- Category Panel 3 -->
+                 <div class="flex items-center space-x-4">
+                     <div class="bg-academy-red-light p-6 rounded-xl flex items-center justify-center w-[67px] h-[67px]"><img src="assets/images/icon-photo.svg" alt="Photo Icon" class="h-8"></div>
+                     <div class="flex flex-col space-y-3">
+                         <button class="bg-academy-light-gray text-score px-8 py-5 rounded-xl hover:bg-gray-200">After Effects</button>
+                         <button class="bg-academy-light-gray text-score px-8 py-5 rounded-xl hover:bg-gray-200">Lightroom</button>
+                         <button class="bg-academy-light-gray text-score px-8 py-5 rounded-xl hover:bg-gray-200">Photography</button>
+                     </div>
+                 </div>
+             </div>
+             <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-l from-white via-white to-transparent p-6 rounded-l-xl flex items-center justify-center w-16 h-16">
+                 <i class="fas fa-chevron-right text-academy-dark text-2xl"></i>
+             </button>
+        </section>
+
+        <!-- New Courses Section (id: 1048:1878) -->
+        <section id="new-courses" class="mb-16">
+            <div class="flex justify-between items-center mb-8">
+                <div class="flex items-center space-x-2">
+                    <span class="w-3 h-6 bg-academy-purple rounded-md"></span>
+                    <h3 class="text-section-title text-academy-dark">new courses</h3>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="flex space-x-2">
+                        <button class="text-button bg-academy-gray text-academy-dark px-6 py-2 rounded-lg hover:bg-gray-300">all course</button>
+                        <button class="text-button text-academy-dark px-6 py-2 rounded-lg hover:bg-gray-100">Design</button>
+                        <button class="text-button text-academy-dark px-6 py-2 rounded-lg hover:bg-gray-100">Development</button>
+                        <button class="text-button text-academy-dark px-6 py-2 rounded-lg hover:bg-gray-100">Photography</button>
+                        <button class="text-button text-academy-dark px-6 py-2 rounded-lg hover:bg-gray-100">Music</button>
+                    </div>
+                    <button class="bg-academy-light-gray p-3 rounded-xl"><i class="fas fa-filter text-academy-gray-light"></i></button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5">
+                    <img src="assets/images/new-course-1.png" alt="Course Image" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h4 class="text-title text-academy-dark mb-3 px-1.5 h-14 overflow-hidden">Learn Figma - UI/UX Design Essential Training</h4>
+                    <div class="flex justify-between items-center text-info text-academy-gray px-1.5 mb-6">
+                        <span class="flex items-center"><i class="icon-lesson mr-2 text-academy-gray-lighter"></i> Lesson : 6</span>
+                        <span class="flex items-center"><i class="icon-student mr-2 text-academy-gray-lighter"></i> student : 198</span>
+                        <span class="flex items-center"><i class="icon-level mr-2 text-academy-gray-lighter"></i> Beginner</span>
+                    </div>
+                    <div class="flex justify-between items-center px-1.5">
+                         <div class="relative w-10 h-10">
+                             <svg class="w-full h-full" viewBox="0 0 36 36">
+                                 <path class="stroke-current text-gray-200" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="25, 75" stroke-linecap="round"/>
+                                 <path class="stroke-current text-academy-orange" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="80, 20" stroke-linecap="round" transform="rotate(90 18 18)"/>
+                             </svg>
+                             <span class="absolute inset-0 flex items-center justify-center text-score text-academy-dark">4<i class="icon-star text-academy-orange text-xs ml-0.5"></i></span>
+                         </div>
+                         <button class="bg-academy-dark text-white text-button py-2 px-4 rounded-lg flex items-center space-x-1 hover:bg-opacity-90">
+                             <span>Start course</span>
+                             <i class="fas fa-arrow-right text-xs"></i>
+                         </button>
+                    </div>
+                </div>
+                <!-- Additional Course Cards -->
+                <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5">
+                    <img src="assets/images/new-course-2.png" alt="Course Image" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h4 class="text-title text-academy-dark mb-2">Advanced Photo Editing Skills</h4>
+                    <div class="flex justify-between items-center text-info text-academy-gray mb-4">
+                        <span class="flex items-center"><i class="icon-lesson mr-2 text-academy-gray-lighter"></i> Lesson : 8</span>
+                        <span class="flex items-center"><i class="icon-student mr-2 text-academy-gray-lighter"></i> student : 220</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="bg-academy-purple text-white text-button py-2 px-4 rounded-lg flex items-center space-x-1 hover:bg-purple-600">
+                            <span>Join Course</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5">
+                    <img src="assets/images/new-course-3.png" alt="Course Image" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h4 class="text-title text-academy-dark mb-2">Frontend Development Mastery</h4>
+                    <div class="flex justify-between items-center text-info text-academy-gray mb-4">
+                        <span class="flex items-center"><i class="icon-lesson mr-2 text-academy-gray-lighter"></i> Lesson : 12</span>
+                        <span class="flex items-center"><i class="icon-student mr-2 text-academy-gray-lighter"></i> student : 185</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="bg-academy-purple text-white text-button py-2 px-4 rounded-lg flex items-center space-x-1 hover:bg-purple-600">
+                            <span>Join Course</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5">
+                    <img src="assets/images/new-course-4.png" alt="Course Image" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h4 class="text-title text-academy-dark mb-2">UI/UX Design Fundamentals</h4>
+                    <div class="flex justify-between items-center text-info text-academy-gray mb-4">
+                        <span class="flex items-center"><i class="icon-lesson mr-2 text-academy-gray-lighter"></i> Lesson : 10</span>
+                        <span class="flex items-center"><i class="icon-student mr-2 text-academy-gray-lighter"></i> student : 165</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="bg-academy-purple text-white text-button py-2 px-4 rounded-lg flex items-center space-x-1 hover:bg-purple-600">
+                            <span>Join Course</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Instructors Section (id: 10:4494) -->
+        <section id="best-instructors" class="mb-16 bg-academy-light-purple-2 rounded-r-[40px] flex flex-col md:flex-row">
+             <div class="md:w-1/3 p-10 flex flex-col justify-center">
+                 <h3 class="text-best-instructor-title text-academy-dark mb-4">Best Instructors</h3>
+                 <p class="text-best-instructor-sub text-academy-gray-darker mb-8">At the Academy, we strive to bring together the best professors for the best courses</p>
+                 <div class="flex items-center space-x-4">
+                     <button class="bg-academy-dark text-white text-button py-3 px-5 rounded-lg flex items-center space-x-2 hover:bg-opacity-90">
+                         <span>All Instructors</span>
+                         <i class="fas fa-arrow-right"></i>
+                     </button>
+                     <span class="bg-academy-blue text-academy-blue-light text-button px-3 py-1 rounded-full">54 Instructor</span>
+                 </div>
+             </div>
+             <div class="md:w-2/3 p-10 grid grid-cols-2 sm:grid-cols-3 gap-6">
+                 <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5 text-center">
+                     <img src="assets/images/instructor-1.png" alt="Instructor" class="rounded-lg mb-4 w-full h-40 object-cover">
+                     <div class="flex justify-between items-center px-2">
+                         <span class="text-instructor-card-name text-academy-gray-dark">Jon Kantner</span>
+                         <span class="text-instructor-card-title text-academy-gray">designer</span>
+                     </div>
+                 </div>
+                 <!-- Additional Instructor Cards -->
+                 <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5 text-center">
+                     <img src="assets/images/instructor-3.png" alt="Instructor" class="rounded-lg mb-4 w-full h-40 object-cover">
+                     <div class="flex justify-between items-center px-2">
+                         <span class="text-instructor-card-name text-academy-gray-dark">Sarah Wilson</span>
+                         <div class="flex items-center space-x-1">
+                             <i class="fas fa-star text-academy-orange"></i>
+                             <span class="text-rating text-academy-gray-dark">4.8</span>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5 text-center">
+                     <img src="assets/images/instructor-4.png" alt="Instructor" class="rounded-lg mb-4 w-full h-40 object-cover">
+                     <div class="flex justify-between items-center px-2">
+                         <span class="text-instructor-card-name text-academy-gray-dark">Mike Johnson</span>
+                         <div class="flex items-center space-x-1">
+                             <i class="fas fa-star text-academy-orange"></i>
+                             <span class="text-rating text-academy-gray-dark">4.9</span>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5 text-center">
+                     <img src="assets/images/instructor-5.png" alt="Instructor" class="rounded-lg mb-4 w-full h-40 object-cover">
+                     <div class="flex justify-between items-center px-2">
+                         <span class="text-instructor-card-name text-academy-gray-dark">Emily Davis</span>
+                         <div class="flex items-center space-x-1">
+                             <i class="fas fa-star text-academy-orange"></i>
+                             <span class="text-rating text-academy-gray-dark">4.7</span>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5 text-center">
+                     <img src="assets/images/instructor-6.png" alt="Instructor" class="rounded-lg mb-4 w-full h-40 object-cover">
+                     <div class="flex justify-between items-center px-2">
+                         <span class="text-instructor-card-name text-academy-gray-dark">David Brown</span>
+                         <div class="flex items-center space-x-1">
+                             <i class="fas fa-star text-academy-orange"></i>
+                             <span class="text-rating text-academy-gray-dark">4.8</span>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5 text-center">
+                     <img src="assets/images/instructor-2.png" alt="Instructor" class="rounded-lg mb-4 w-full h-40 object-cover">
+                     <div class="flex justify-between items-center px-2">
+                         <span class="text-instructor-card-name text-academy-gray-dark">Rebecca Taylor</span>
+                         <div class="flex items-center space-x-1">
+                             <i class="fas fa-star text-academy-orange"></i>
+                             <span class="text-rating text-academy-gray-dark">4.6</span>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+        </section>
+
+        <!-- Your Courses Section (id: 1048:1703) -->
+        <section id="your-courses" class="mb-16">
+             <div class="flex justify-between items-center mb-8">
+                 <div class="flex items-center space-x-2">
+                     <span class="w-3 h-6 bg-academy-purple rounded-md"></span>
+                     <h3 class="text-section-title text-academy-dark">Your courses</h3>
+                 </div>
+                 <button class="bg-academy-gray text-academy-gray text-button py-2 px-4 rounded-lg flex items-center space-x-1 hover:bg-gray-300">
+                     <span>see all</span>
+                     <i class="fas fa-arrow-right text-xs"></i>
+                 </button>
+             </div>
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                 <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5 flex space-x-4">
+                     <img src="assets/images/your-course-1.png" alt="Your Course" class="rounded-lg w-48 h-full object-cover">
+                     <div class="flex flex-col justify-between py-2 flex-grow">
+                         <div>
+                             <h4 class="text-title text-academy-dark mb-2">Google Ads Training 2021: Profit with Pay</h4>
+                             <div class="flex justify-between items-center text-info text-academy-gray mb-4">
+                                 <span class="flex items-center"><i class="icon-lesson mr-2 text-academy-gray-lighter"></i> Lesson : 6</span>
+                                 <span class="flex items-center"><i class="icon-student mr-2 text-academy-gray-lighter"></i> student : 198</span>
+                                 <span class="flex items-center"><i class="icon-level mr-2 text-academy-gray-lighter"></i> average</span>
+                             </div>
+                             <div class="flex items-center space-x-4 mb-4">
+                                 <div class="w-full bg-gray-200 rounded-full h-1.5">
+                                     <div class="bg-academy-orange h-1.5 rounded-full" style="width: 75%"></div>
+                                 </div>
+                                 <span class="text-points text-academy-gray">points : 75 / 100</span>
+                                 <span class="text-points text-academy-gray">days : 56</span>
+                             </div>
+                         </div>
+                         <div class="flex justify-between items-end">
+                             <div class="flex items-center space-x-2">
+                                 <img src="assets/images/instructor-2.png" alt="Instructor" class="w-10 h-10 rounded-lg object-cover"> <!-- Using instructor-2 for variety -->
+                                 <div>
+                                     <p class="text-instructor-name text-academy-gray-dark">Jon Kantner</p>
+                                     <p class="text-instructor-title text-academy-gray">SEO</p>
+                                 </div>
+                             </div>
+                             <button class="bg-academy-dark text-white text-button py-2 px-4 rounded-lg flex items-center space-x-1 hover:bg-opacity-90">
+                                 <span>Let's go</span>
+                                 <i class="fas fa-arrow-right text-xs"></i>
+                             </button>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5 flex space-x-4">
+                     <img src="assets/images/your-course-2.png" alt="Your Course" class="rounded-lg w-48 h-full object-cover">
+                     <div class="flex flex-col justify-between py-2 flex-grow">
+                         <div>
+                             <h4 class="text-title text-academy-dark mb-2">Complete Front-End Development Course</h4>
+                             <div class="flex justify-between items-center text-info text-academy-gray mb-4">
+                                 <span class="flex items-center"><i class="icon-lesson mr-2 text-academy-gray-lighter"></i> Lesson : 8</span>
+                                 <span class="flex items-center"><i class="icon-student mr-2 text-academy-gray-lighter"></i> student : 245</span>
+                                 <span class="flex items-center"><i class="icon-level mr-2 text-academy-gray-lighter"></i> advanced</span>
+                             </div>
+                             <div class="flex items-center space-x-4 mb-4">
+                                 <div class="w-full bg-gray-200 rounded-full h-1.5">
+                                     <div class="bg-academy-orange h-1.5 rounded-full" style="width: 45%"></div>
+                                 </div>
+                                 <span class="text-points text-academy-gray">points : 45 / 100</span>
+                                 <span class="text-points text-academy-gray">days : 32</span>
+                             </div>
+                         </div>
+                         <div class="flex justify-between items-end">
+                             <div class="flex items-center space-x-2">
+                                 <img src="assets/images/instructor-3.png" alt="Instructor" class="w-10 h-10 rounded-lg object-cover">
+                                 <div>
+                                     <p class="text-instructor-name text-academy-gray-dark">Sarah Wilson</p>
+                                     <p class="text-instructor-title text-academy-gray">Developer</p>
+                                 </div>
+                             </div>
+                             <button class="bg-academy-dark text-white text-button py-2 px-4 rounded-lg flex items-center space-x-1 hover:bg-opacity-90">
+                                 <span>Let's go</span>
+                                 <i class="fas fa-arrow-right text-xs"></i>
+                             </button>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5 flex space-x-4">
+                     <img src="assets/images/your-course-3.png" alt="Your Course" class="rounded-lg w-48 h-full object-cover">
+                     <div class="flex flex-col justify-between py-2 flex-grow">
+                         <div>
+                             <h4 class="text-title text-academy-dark mb-2">UI/UX Design Advanced Concepts</h4>
+                             <div class="flex justify-between items-center text-info text-academy-gray mb-4">
+                                 <span class="flex items-center"><i class="icon-lesson mr-2 text-academy-gray-lighter"></i> Lesson : 10</span>
+                                 <span class="flex items-center"><i class="icon-student mr-2 text-academy-gray-lighter"></i> student : 175</span>
+                                 <span class="flex items-center"><i class="icon-level mr-2 text-academy-gray-lighter"></i> expert</span>
+                             </div>
+                             <div class="flex items-center space-x-4 mb-4">
+                                 <div class="w-full bg-gray-200 rounded-full h-1.5">
+                                     <div class="bg-academy-orange h-1.5 rounded-full" style="width: 90%"></div>
+                                 </div>
+                                 <span class="text-points text-academy-gray">points : 90 / 100</span>
+                                 <span class="text-points text-academy-gray">days : 12</span>
+                             </div>
+                         </div>
+                         <div class="flex justify-between items-end">
+                             <div class="flex items-center space-x-2">
+                                 <img src="assets/images/instructor-4.png" alt="Instructor" class="w-10 h-10 rounded-lg object-cover">
+                                 <div>
+                                     <p class="text-instructor-name text-academy-gray-dark">Mike Johnson</p>
+                                     <p class="text-instructor-title text-academy-gray">Designer</p>
+                                 </div>
+                             </div>
+                             <button class="bg-academy-dark text-white text-button py-2 px-4 rounded-lg flex items-center space-x-1 hover:bg-opacity-90">
+                                 <span>Let's go</span>
+                                 <i class="fas fa-arrow-right text-xs"></i>
+                             </button>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5 flex space-x-4">
+                     <img src="assets/images/your-course-4.png" alt="Your Course" class="rounded-lg w-48 h-full object-cover">
+                     <div class="flex flex-col justify-between py-2 flex-grow">
+                         <div>
+                             <h4 class="text-title text-academy-dark mb-2">Advanced Photography Techniques</h4>
+                             <div class="flex justify-between items-center text-info text-academy-gray mb-4">
+                                 <span class="flex items-center"><i class="icon-lesson mr-2 text-academy-gray-lighter"></i> Lesson : 12</span>
+                                 <span class="flex items-center"><i class="icon-student mr-2 text-academy-gray-lighter"></i> student : 156</span>
+                                 <span class="flex items-center"><i class="icon-level mr-2 text-academy-gray-lighter"></i> beginner</span>
+                             </div>
+                             <div class="flex items-center space-x-4 mb-4">
+                                 <div class="w-full bg-gray-200 rounded-full h-1.5">
+                                     <div class="bg-academy-orange h-1.5 rounded-full" style="width: 25%"></div>
+                                 </div>
+                                 <span class="text-points text-academy-gray">points : 25 / 100</span>
+                                 <span class="text-points text-academy-gray">days : 82</span>
+                             </div>
+                         </div>
+                         <div class="flex justify-between items-end">
+                             <div class="flex items-center space-x-2">
+                                 <img src="assets/images/instructor-5.png" alt="Instructor" class="w-10 h-10 rounded-lg object-cover">
+                                 <div>
+                                     <p class="text-instructor-name text-academy-gray-dark">Emily Davis</p>
+                                     <p class="text-instructor-title text-academy-gray">Photographer</p>
+                                 </div>
+                             </div>
+                             <button class="bg-academy-dark text-white text-button py-2 px-4 rounded-lg flex items-center space-x-1 hover:bg-opacity-90">
+                                 <span>Let's go</span>
+                                 <i class="fas fa-arrow-right text-xs"></i>
+                             </button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+        </section>
+
+        <!-- Newsletter Section (id: 1048:1503) -->
+        <section id="newsletter" class="mb-16 bg-academy-blue-light p-16 rounded-lg text-center relative overflow-hidden">
+             <!-- Background elements placeholders -->
+             <div class="absolute -top-20 -left-20 w-60 h-60 bg-academy-blue opacity-10 rounded-full"></div>
+             <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-academy-blue opacity-10 rounded-full"></div>
+             <h3 class="text-newsletter-title text-academy-dark mb-6 relative z-10">Find out about the latest courses with the academy newsletter</h3>
+             <div class="flex justify-center relative z-10">
+                 <div class="relative w-full max-w-lg shadow-lg">
+                     <input type="email" placeholder="Email address..." class="bg-white rounded-xl py-4 px-5 pl-5 w-full text-link focus:outline-none border border-academy-gray">
+                     <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-academy-dark text-white text-button px-6 py-2 rounded-lg hover:bg-opacity-90">
+                         SUBMIT
+                     </button>
+                 </div>
+             </div>
+        </section>
+
+        <!-- Top Courses Section (id: 1048:1493) -->
+        <section id="top-courses" class="mb-16">
+             <div class="flex justify-between items-center mb-8">
+                 <div class="flex items-center space-x-2">
+                     <span class="w-3 h-6 bg-academy-purple rounded-md"></span>
+                     <h3 class="text-section-title text-academy-dark">top courses</h3>
+                 </div>
+                 <div class="flex space-x-2">
+                     <button class="bg-academy-gray p-3 rounded-xl hover:bg-gray-300"><i class="fas fa-arrow-left text-academy-gray-light"></i></button>
+                     <button class="bg-academy-gray p-3 rounded-xl hover:bg-gray-300"><i class="fas fa-arrow-right text-academy-dark"></i></button>
+                 </div>
+             </div>
+             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                 <!-- Top Course Cards -->
+                 <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5">
+                     <img src="assets/images/new-course-1.png" alt="Course Image" class="rounded-lg mb-4 w-full h-48 object-cover">
+                     <h4 class="text-title text-academy-dark mb-3 px-1.5">Learn Figma - UI/UX Design Essential Training</h4>
+                     <div class="flex justify-between items-center text-info text-academy-gray px-1.5 mb-6">
+                         <span class="flex items-center"><i class="icon-lesson mr-2 text-academy-gray-lighter"></i> Lesson : 6</span>
+                         <span class="flex items-center"><i class="icon-student mr-2 text-academy-gray-lighter"></i> student : 198</span>
+                     </div>
+                     <div class="flex justify-between items-center px-1.5">
+                         <div class="relative w-10 h-10">
+                             <svg class="w-full h-full" viewBox="0 0 36 36">
+                                 <path class="stroke-current text-gray-200" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="25, 75" stroke-linecap="round"/>
+                                 <path class="stroke-current text-academy-orange" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="75, 25" stroke-linecap="round" transform="rotate(90 18 18)"/>
+                             </svg>
+                             <span class="absolute inset-0 flex items-center justify-center text-score text-academy-dark">4.9<i class="icon-star text-academy-orange text-xs ml-0.5"></i></span>
+                         </div>
+                         <button class="bg-academy-dark text-white text-button py-2 px-4 rounded-lg flex items-center space-x-1 hover:bg-opacity-90">
+                             <span>Join now</span>
+                             <i class="fas fa-arrow-right text-xs"></i>
+                         </button>
+                     </div>
+                 </div>
+                 <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5">
+                     <img src="assets/images/new-course-2.png" alt="Course Image" class="rounded-lg mb-4 w-full h-48 object-cover">
+                     <h4 class="text-title text-academy-dark mb-3 px-1.5">Advanced Photo Editing Skills</h4>
+                     <div class="flex justify-between items-center text-info text-academy-gray px-1.5 mb-6">
+                         <span class="flex items-center"><i class="icon-lesson mr-2 text-academy-gray-lighter"></i> Lesson : 8</span>
+                         <span class="flex items-center"><i class="icon-student mr-2 text-academy-gray-lighter"></i> student : 245</span>
+                     </div>
+                     <div class="flex justify-between items-center px-1.5">
+                         <div class="relative w-10 h-10">
+                             <svg class="w-full h-full" viewBox="0 0 36 36">
+                                 <path class="stroke-current text-gray-200" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="25, 75" stroke-linecap="round"/>
+                                 <path class="stroke-current text-academy-orange" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="85, 15" stroke-linecap="round" transform="rotate(90 18 18)"/>
+                             </svg>
+                             <span class="absolute inset-0 flex items-center justify-center text-score text-academy-dark">4.8<i class="icon-star text-academy-orange text-xs ml-0.5"></i></span>
+                         </div>
+                         <button class="bg-academy-dark text-white text-button py-2 px-4 rounded-lg flex items-center space-x-1 hover:bg-opacity-90">
+                             <span>Join now</span>
+                             <i class="fas fa-arrow-right text-xs"></i>
+                         </button>
+                     </div>
+                 </div>
+                 <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5">
+                     <img src="assets/images/new-course-3.png" alt="Course Image" class="rounded-lg mb-4 w-full h-48 object-cover">
+                     <h4 class="text-title text-academy-dark mb-3 px-1.5">Frontend Development Mastery</h4>
+                     <div class="flex justify-between items-center text-info text-academy-gray px-1.5 mb-6">
+                         <span class="flex items-center"><i class="icon-lesson mr-2 text-academy-gray-lighter"></i> Lesson : 12</span>
+                         <span class="flex items-center"><i class="icon-student mr-2 text-academy-gray-lighter"></i> student : 185</span>
+                     </div>
+                     <div class="flex justify-between items-center px-1.5">
+                         <div class="relative w-10 h-10">
+                             <svg class="w-full h-full" viewBox="0 0 36 36">
+                                 <path class="stroke-current text-gray-200" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="25, 75" stroke-linecap="round"/>
+                                 <path class="stroke-current text-academy-orange" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="90, 10" stroke-linecap="round" transform="rotate(90 18 18)"/>
+                             </svg>
+                             <span class="absolute inset-0 flex items-center justify-center text-score text-academy-dark">5.0<i class="icon-star text-academy-orange text-xs ml-0.5"></i></span>
+                         </div>
+                         <button class="bg-academy-dark text-white text-button py-2 px-4 rounded-lg flex items-center space-x-1 hover:bg-opacity-90">
+                             <span>Join now</span>
+                             <i class="fas fa-arrow-right text-xs"></i>
+                         </button>
+                     </div>
+                 </div>
+                 <div class="bg-academy-light-gray border border-academy-gray rounded-xl p-2.5">
+                     <img src="assets/images/new-course-4.png" alt="Course Image" class="rounded-lg mb-4 w-full h-48 object-cover">
+                     <h4 class="text-title text-academy-dark mb-3 px-1.5">UI/UX Design Fundamentals</h4>
+                     <div class="flex justify-between items-center text-info text-academy-gray px-1.5 mb-6">
+                         <span class="flex items-center"><i class="icon-lesson mr-2 text-academy-gray-lighter"></i> Lesson : 10</span>
+                         <span class="flex items-center"><i class="icon-student mr-2 text-academy-gray-lighter"></i> student : 165</span>
+                     </div>
+                     <div class="flex justify-between items-center px-1.5">
+                         <div class="relative w-10 h-10">
+                             <svg class="w-full h-full" viewBox="0 0 36 36">
+                                 <path class="stroke-current text-gray-200" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="25, 75" stroke-linecap="round"/>
+                                 <path class="stroke-current text-academy-orange" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="95, 5" stroke-linecap="round" transform="rotate(90 18 18)"/>
+                             </svg>
+                             <span class="absolute inset-0 flex items-center justify-center text-score text-academy-dark">4.7<i class="icon-star text-academy-orange text-xs ml-0.5"></i></span>
+                         </div>
+                         <button class="bg-academy-dark text-white text-button py-2 px-4 rounded-lg flex items-center space-x-1 hover:bg-opacity-90">
+                             <span>Join now</span>
+                             <i class="fas fa-arrow-right text-xs"></i>
+                         </button>
+                     </div>
+                 </div>
+             </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section (id: 1048:1492) -->
+    <footer class="bg-academy-light-gray rounded-t-[40px] pt-16">
+        <div class="container mx-auto px-4">
+            <!-- Top Footer -->
+            <div class="flex flex-col md:flex-row justify-between items-start mb-12">
+                <div class="mb-8 md:mb-0 md:w-1/3">
+                     <div class="flex items-center space-x-2 mb-4">
+                         <img src="assets/images/footer-logo.svg" alt="Academy Logo" class="h-8">
+                     </div>
+                     <div class="relative bg-academy-light-purple p-6 rounded-tl-[40px] rounded-tr-[40px] rounded-bl-[60px] rounded-br-[40px]">
+                         <p class="text-body text-academy-dark">
+                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque...
+                         </p>
+                         <!-- Decorative circles -->
+                         <div class="absolute -top-4 -left-4 w-12 h-12 bg-academy-light-purple rounded-full"></div>
+                         <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-academy-light-purple rounded-full"></div>
+                     </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:w-2/3">
+                     <!-- Categories -->
+                     <div>
+                         <div class="flex items-center space-x-2 mb-4">
+                             <span class="w-2 h-4 bg-academy-purple rounded-sm"></span>
+                             <h4 class="text-section-title text-academy-dark text-base">Categories</h4>
+                         </div>
+                         <ul class="space-y-3">
+                             <li><a href="#" class="text-link text-academy-gray hover:text-academy-dark">Designing</a></li>
+                             <li><a href="#" class="text-link text-academy-gray hover:text-academy-dark">Programming</a></li>
+                             <li><a href="#" class="text-link text-academy-gray hover:text-academy-dark">Graphics</a></li>
+                             <li><a href="#" class="text-link text-academy-gray hover:text-academy-dark">Front End</a></li>
+                             <!-- More links -->
+                         </ul>
+                     </div>
+                     <!-- Quick Access -->
+                     <div>
+                         <div class="flex items-center space-x-2 mb-4">
+                             <span class="w-2 h-4 bg-academy-purple rounded-sm"></span>
+                             <h4 class="text-section-title text-academy-dark text-base">Quick Access</h4>
+                         </div>
+                         <ul class="space-y-3">
+                             <li><a href="#" class="text-link text-academy-gray hover:text-academy-dark">What We Offer</a></li>
+                             <li><a href="#" class="text-link text-academy-gray hover:text-academy-dark">Careers</a></li>
+                             <li><a href="#" class="text-link text-academy-gray hover:text-academy-dark">Leadership</a></li>
+                             <li><a href="#" class="text-link text-academy-gray hover:text-academy-dark">About</a></li>
+                             <!-- More links -->
+                         </ul>
+                     </div>
+                     <!-- New Comment -->
+                     <div>
+                         <div class="flex items-center space-x-2 mb-4">
+                             <span class="w-2 h-4 bg-academy-purple rounded-sm"></span>
+                             <h4 class="text-section-title text-academy-dark text-base">New Comment</h4>
+                         </div>
+                         <div class="space-y-4">
+                             <div class="bg-white p-4 rounded-lg">
+                                 <p class="text-title text-academy-gray-dark">ellsmartx</p>
+                                 <p class="text-subhead text-academy-gray">how nice does this look 😍...</p>
+                             </div>
+                             <!-- Additional Comment -->
+                             <div class="bg-white p-4 rounded-lg">
+                                 <p class="text-title text-academy-gray-dark">janesmith</p>
+                                 <p class="text-subhead text-academy-gray">thanks for this amazing platform! 🎉</p>
+                             </div>
+                         </div>
+                     </div>
+                     <!-- Certificate -->
+                     <div>
+                         <div class="flex items-center space-x-2 mb-4">
+                             <span class="w-2 h-4 bg-academy-purple rounded-sm"></span>
+                             <h4 class="text-section-title text-academy-dark text-base">Membership Certificate</h4>
+                         </div>
+                         <div class="bg-white p-4 rounded-lg flex items-center justify-center">
+                             <img src="assets/images/footer-certificate.svg" alt="Membership Certificate" class="h-24"> <!-- Adjust height as needed -->
+                         </div>
+                     </div>
+                </div>
+            </div>
+            <!-- Bottom Footer -->
+            <div class="bg-academy-gray rounded-lg py-4 px-6 flex justify-between items-center text-subhead text-academy-gray mb-8">
+                <span>all copyright (c) 2022 reserved</span>
+                <span>privacy policy | terms & conditions</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
