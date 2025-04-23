@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Car Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body class="h-screen overflow-hidden bg-gray-900">
+    <div class="fixed top-4 left-4 text-white bg-black bg-opacity-50 p-4 rounded">
+        <p>Score: <span id="score">0</span></p>
+        <p>Speed: <span id="speed">0</span> km/h</p>
+    </div>
+    
+    <div id="gameContainer" class="w-full h-full"></div>
+
+    <script>
+        let scene, camera, renderer, car, road;
+        let score = 0;
+        let speed = 0;
+        const obstacles = [];
+        let gameActive = true;
+
+        function init() {
+            // Scene setup
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('gameContainer').appendChild(renderer.domElement);
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(0, 20, 10);
+            scene.add(directionalLight);
+
+            // Create car
+            createCar();
+            
+            // Create road
+            createRoad();
+
+            // Position camera
+            camera.position.set(0, 5, -7);
+            camera.lookAt(car.position);
+
+            // Add initial obstacles
+            for(let i = 0; i < 5; i++) {
+                addObstacle();
+            }
+
+            animate();
+        }
+
+        function createCar() {
+            const carGeometry = new THREE.BoxGeometry(1, 0.5, 2);
+            const carMaterial = new THREE.MeshPhongMaterial({ color: 0xff0000 });
+            car = new THREE.Mesh(carGeometry, carMaterial);
+            car.position.y = 0.25;
+            scene.add(car);
+        }
+
+        function createRoad() {
+            const roadGeometry = new THREE.PlaneGeometry(10, 1000);
+            const roadMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0x333333,
+                side: THREE.DoubleSide 
+            });
+            road = new THREE.Mesh(roadGeometry, roadMaterial);
+            road.rotation.x = -Math.PI / 2;
+            road.position.z = 50;
+            scene.add(road);
+        }
+
+        function addObstacle() {
+            const obstacleGeometry = new THREE.BoxGeometry(1, 1, 1);
+            const obstacleMaterial = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
+            const obstacle = new THREE.Mesh(obstacleGeometry, obstacleMaterial);
+            
+            obstacle.position.z = road.position.z + (Math.random() * 100);
+            obstacle.position.x = (Math.random() * 8) - 4;
+            obstacle.position.y = 0.5;
+            
+            obstacles.push(obstacle);
+            scene.add(obstacle);
+        }
+
+        function checkCollision(obstacle) {
+            const carBox = new THREE.Box3().setFromObject(car);
+            const obstacleBox = new THREE.Box3().setFromObject(obstacle);
+            return carBox.intersectsBox(obstacleBox);
+        }
+
+        function gameOver() {
+            gameActive = false;
+            alert(`Game Over! Final Score: ${score}`);
+            location.reload();
+        }
+
+        function animate() {
+            if (!gameActive) return;
+            
+            requestAnimationFrame(animate);
+
+            // Update speed and score
+            speed = Math.round(score / 10);
+            document.getElementById('speed').textContent = speed;
+            document.getElementById('score').textContent = score;
+            score++;
+
+            // Move obstacles
+            obstacles.forEach((obstacle, index) => {
+                obstacle.position.z -= 0.3;
+                
+                if (obstacle.position.z < -10) {
+                    scene.remove(obstacle);
+                    obstacles.splice(index, 1);
+                    addObstacle();
+                }
+
+                if (checkCollision(obstacle)) {
+                    gameOver();
+                }
+            });
+
+            renderer.render(scene, camera);
+        }
+
+        // Controls
+        document.addEventListener('keydown', (e) => {
+            if (!gameActive) return;
+            
+            switch(e.key) {
+                case 'ArrowLeft':
+                    if (car.position.x > -4) {
+                        car.position.x -= 0.5;
+                    }
+                    break;
+                case 'ArrowRight':
+                    if (car.position.x < 4) {
+                        car.position.x += 0.5;
+                    }
+                    break;
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Start game
+        init();
+    </script>
+</body>
+</html>

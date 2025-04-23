@@ -1,0 +1,2705 @@
+/* Home */
+
+position: relative;
+width: 1920px;
+height: 6320px;
+
+background: #FFFFFF;
+
+
+/* Group 10 */
+
+position: absolute;
+width: 1088px;
+height: 1538px;
+left: 672px;
+top: 1263px;
+
+
+
+/* Group 7 */
+
+position: absolute;
+width: 544px;
+height: 544px;
+left: 672px;
+top: 1817px;
+
+
+
+/* Dazone-Modern-Accent-Fabric-Chair-Single-Sofa-Comfy-Upholstered-Arm-Chair-Sofa-Living-Room-Furniture-Gray_806bc4f2-bd4e-4502-a1d9-2c7af7f2b1d4_1.0b670f2677da60e7b3c116c1f3f6ccf2 1 */
+
+position: absolute;
+width: 538px;
+height: 544px;
+left: 678px;
+top: 1817px;
+
+background: url(Dazone-Modern-Accent-Fabric-Chair-Single-Sofa-Comfy-Upholstered-Arm-Chair-Sofa-Living-Room-Furniture-Gray_806bc4f2-bd4e-4502-a1d9-2c7af7f2b1d4_1.0b670f2677da60e7b3c116c1f3f6ccf2);
+
+
+/* Category Label/Center Copy */
+
+position: absolute;
+width: 240px;
+height: 70px;
+left: 672px;
+top: 1817px;
+
+
+
+/* Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #BC260B;
+
+
+/* Tables */
+
+position: absolute;
+height: 36px;
+left: 13.02%;
+right: 13.23%;
+top: calc(50% - 36px/2 + 2px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+text-align: center;
+letter-spacing: -0.415px;
+
+color: #FFFFFF;
+
+
+
+/* Group 3 */
+
+position: absolute;
+width: 512px;
+height: 295px;
+left: 1248px;
+top: 1963px;
+
+
+
+/* tdh-341interior--6-seater 1 */
+
+position: absolute;
+width: 512px;
+height: 295px;
+left: 1248px;
+top: 1963px;
+
+background: url(tdh-341interior--6-seater);
+
+
+/* Category Label/Center */
+
+position: absolute;
+width: 240px;
+height: 70px;
+left: 1520px;
+top: 1963px;
+
+
+
+/* Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #BC260B;
+
+
+/* Tables */
+
+position: absolute;
+height: 36px;
+left: 33.44%;
+right: 34.06%;
+top: calc(50% - 36px/2 + 2px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+text-align: center;
+letter-spacing: -0.415px;
+
+color: #FFFFFF;
+
+
+
+/* Group 6 */
+
+position: absolute;
+width: 408px;
+height: 408px;
+left: 1248px;
+top: 2393px;
+
+
+
+/* Colorado-Style-Home-Furnishings-8 1 */
+
+position: absolute;
+width: 408px;
+height: 408px;
+left: 1248px;
+top: 2393px;
+
+background: url(Colorado-Style-Home-Furnishings-8);
+
+
+/* Category Label/Center */
+
+position: absolute;
+width: 240px;
+height: 70px;
+left: 1248px;
+top: 2393px;
+
+border-radius: 0px;
+
+
+/* Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #BC260B;
+border-radius: 0px;
+
+
+/* Tables */
+
+position: absolute;
+height: 36px;
+left: 21.77%;
+right: 21.98%;
+top: calc(50% - 36px/2 + 2px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+text-align: center;
+letter-spacing: -0.415px;
+
+color: #FFFFFF;
+
+
+
+/* Group 8 */
+
+position: absolute;
+width: 376px;
+height: 376px;
+left: 1248px;
+top: 1555px;
+
+
+
+/* Group 27 */
+
+position: absolute;
+width: 376px;
+height: 376px;
+left: 1248px;
+top: 1555px;
+
+
+
+/* sdc-378-perspectivergbcolor 1 */
+
+position: absolute;
+width: 376px;
+height: 376px;
+left: 1248px;
+top: 1555px;
+
+background: url(sdc-378-perspectivergbcolor);
+
+
+/* Category Label/Center */
+
+position: absolute;
+width: 240px;
+height: 70px;
+left: 1248px;
+top: 1861px;
+
+
+
+/* Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #BC260B;
+
+
+/* Tables */
+
+position: absolute;
+height: 36px;
+left: 4.69%;
+right: 5.31%;
+top: calc(50% - 36px/2 + 2px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+text-align: center;
+letter-spacing: -0.415px;
+
+color: #FFFFFF;
+
+
+
+/* Group 5 */
+
+position: absolute;
+width: 376px;
+height: 314px;
+left: 840px;
+top: 2393px;
+
+
+
+/* ambient-smart-lighting-2048px-philips-2x1-1 1 */
+
+position: absolute;
+width: 376px;
+height: 314px;
+left: 840px;
+top: 2393px;
+
+background: url(ambient-smart-lighting-2048px-philips-2x1-1);
+
+
+/* Category Label/Center */
+
+position: absolute;
+width: 240px;
+height: 70px;
+left: 976px;
+top: 2393px;
+
+
+
+/* Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #BC260B;
+
+
+/* Tables */
+
+position: absolute;
+height: 36px;
+left: 30.1%;
+right: 30.73%;
+top: calc(50% - 36px/2 + 2px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+text-align: center;
+letter-spacing: -0.415px;
+
+color: #FFFFFF;
+
+
+
+/* Group 90 */
+
+position: absolute;
+width: 376px;
+height: 511px;
+left: 834px;
+top: 1263px;
+
+
+
+/* 9a741ddc58a273be631a2bf882aecc72 1 */
+
+position: absolute;
+width: 376px;
+height: 511px;
+left: 834px;
+top: 1263px;
+
+background: url(9a741ddc58a273be631a2bf882aecc72);
+
+
+/* Category Label/Center Copy */
+
+position: absolute;
+width: 240px;
+height: 70px;
+left: 970px;
+top: 1704px;
+
+
+
+/* Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #BC260B;
+
+
+/* Tables */
+
+position: absolute;
+height: 36px;
+left: 20.52%;
+right: 20.73%;
+top: calc(50% - 36px/2 + 2px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+text-align: center;
+letter-spacing: -0.415px;
+
+color: #ECECEE;
+
+
+
+/* Group 15 */
+
+position: absolute;
+width: 376px;
+height: 1141px;
+left: 160px;
+top: 1232px;
+
+
+
+/* Title and Description */
+
+position: absolute;
+width: 376px;
+height: 329px;
+left: 160px;
+top: 1232px;
+
+
+
+/* Up to 20% off */
+
+position: absolute;
+height: 270px;
+left: 0%;
+right: 0%;
+top: calc(50% - 270px/2 + 11.5px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 72px;
+line-height: 90px;
+/* or 125% */
+letter-spacing: -1.245px;
+
+color: #2C2E3F;
+
+
+
+/* Our entire Winter co */
+
+position: absolute;
+height: 28px;
+left: 0%;
+right: 38.83%;
+top: calc(50% - 28px/2 + 150.5px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 28px;
+/* identical to box height, or 117% */
+letter-spacing: -0.466667px;
+
+color: rgba(44, 46, 63, 0.697549);
+
+
+
+/* Rectangle */
+
+position: absolute;
+left: 0%;
+right: 36.17%;
+top: 79.33%;
+bottom: 19.45%;
+
+background: #FE7865;
+
+
+/* On Sale */
+
+position: absolute;
+height: 42px;
+left: 0%;
+right: 71.28%;
+top: calc(50% - 42px/2 - 143.5px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 28px;
+line-height: 42px;
+/* identical to box height */
+letter-spacing: -0.161212px;
+
+color: #2C2E3F;
+
+
+
+/* Stacked Group */
+
+position: absolute;
+width: 253px;
+height: 672px;
+left: 160px;
+top: 1701px;
+
+
+
+/* Furniture Copy 2 */
+
+position: absolute;
+left: 0%;
+right: -6.72%;
+top: 17.41%;
+bottom: 54.02%;
+
+
+
+/* Chairs Office Chairs */
+
+position: absolute;
+height: 128px;
+left: 9.26%;
+right: 2.33%;
+top: calc(50% - 128px/2 + 9px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 32px;
+/* or 160% */
+
+color: rgba(20, 21, 23, 0.594316);
+
+mix-blend-mode: normal;
+opacity: 0.7;
+
+
+/* Collections */
+
+position: absolute;
+height: 36px;
+left: 0%;
+right: 57.31%;
+top: calc(50% - 36px/2 - 205px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+
+color: #141517;
+
+mix-blend-mode: normal;
+opacity: 0.7;
+
+
+/* Furniture Copy 3 */
+
+position: absolute;
+left: 0%;
+right: 18.18%;
+top: 48.51%;
+bottom: 32.44%;
+
+
+
+/* Chairs Office Chairs */
+
+position: absolute;
+height: 96px;
+left: 11.59%;
+right: 0%;
+top: calc(50% - 96px/2);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 32px;
+/* or 160% */
+
+color: rgba(20, 21, 23, 0.594316);
+
+mix-blend-mode: normal;
+opacity: 0.7;
+
+
+/* Collections */
+
+position: absolute;
+height: 36px;
+left: 0%;
+right: 73.12%;
+top: calc(50% - 36px/2 - 18px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+
+color: #141517;
+
+mix-blend-mode: normal;
+opacity: 0.7;
+
+
+/* Decoration */
+
+position: absolute;
+height: 36px;
+left: 0%;
+right: 47.04%;
+top: calc(50% - 36px/2 + 146px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+
+color: #141517;
+
+mix-blend-mode: normal;
+opacity: 0.7;
+
+
+/* Outdoor */
+
+position: absolute;
+height: 36px;
+left: 0%;
+right: 56.92%;
+top: calc(50% - 36px/2 + 203px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+
+color: #141517;
+
+mix-blend-mode: normal;
+opacity: 0.7;
+
+
+/* Outlet */
+
+position: absolute;
+height: 36px;
+left: 0%;
+right: 47.04%;
+top: calc(50% - 36px/2 + 260px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+
+color: #141517;
+
+mix-blend-mode: normal;
+opacity: 0.7;
+
+
+/* Chairs Office Chairs */
+
+position: absolute;
+height: 96px;
+left: 9.58%;
+right: 80.89%;
+top: calc(50% - 96px/2 - 1414px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 32px;
+/* or 160% */
+
+color: rgba(20, 21, 23, 0.594316);
+
+mix-blend-mode: normal;
+opacity: 0.7;
+
+
+/* Collections */
+
+position: absolute;
+height: 36px;
+left: 8.28%;
+right: 87.86%;
+top: calc(50% - 36px/2 - 1489px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+
+color: #141517;
+
+mix-blend-mode: normal;
+opacity: 0.7;
+
+
+/* New In */
+
+position: absolute;
+height: 36px;
+left: 8.33%;
+right: 83.07%;
+top: calc(50% - 36px/2 - 1542px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+
+color: #141517;
+
+mix-blend-mode: normal;
+opacity: 0.7;
+
+
+/* Magazine */
+
+position: absolute;
+width: 1199px;
+height: 816px;
+left: 153px;
+top: 4814px;
+
+
+
+/* Title and Description */
+
+position: absolute;
+width: 512px;
+height: 290px;
+left: 153px;
+top: 4958px;
+
+
+
+/* Brighten up your liv */
+
+position: absolute;
+width: 376px;
+height: 58px;
+left: 160px;
+top: 5190px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 28px;
+/* or 117% */
+letter-spacing: -0.466667px;
+
+color: rgba(44, 46, 63, 0.697549);
+
+
+
+/* Stacked Group */
+
+position: absolute;
+width: 512px;
+height: 184px;
+left: 153px;
+top: 4958px;
+
+
+
+/* Rectangle */
+
+position: absolute;
+width: 240px;
+height: 4px;
+left: 153px;
+top: 5138px;
+
+background: #FE7865;
+
+
+/* Stacked Group */
+
+position: absolute;
+width: 512px;
+height: 131px;
+left: 153px;
+top: 4958px;
+
+
+
+/* Latest News */
+
+position: absolute;
+height: 90px;
+left: 0%;
+right: 0%;
+top: calc(50% - 90px/2 + 20.5px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 72px;
+line-height: 90px;
+/* identical to box height, or 125% */
+letter-spacing: -1.245px;
+
+color: #2C2E3F;
+
+
+
+/* Trending */
+
+position: absolute;
+height: 42px;
+left: 0%;
+right: 75.2%;
+top: calc(50% - 42px/2 - 44.5px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 28px;
+line-height: 42px;
+/* identical to box height */
+letter-spacing: -0.161212px;
+
+color: #2C2E3F;
+
+
+
+/* Button */
+
+position: absolute;
+width: 376px;
+height: 96px;
+left: 160px;
+top: 5304px;
+
+
+
+/* Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #BC260B;
+
+
+/* EXPLORE ALL ARTICLES */
+
+position: absolute;
+width: 172px;
+height: 24px;
+left: 38px;
+top: calc(50% - 24px/2);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height */
+letter-spacing: 2px;
+text-transform: uppercase;
+
+color: #FFFFFF;
+
+
+
+/* arrow-right */
+
+position: absolute;
+width: 14px;
+height: 14px;
+left: 322px;
+top: 41px;
+
+
+
+/* Path */
+
+position: absolute;
+width: 14px;
+height: 1px;
+right: 40px;
+top: calc(50% - 1px/2);
+
+border: 2px solid #FFFFFF;
+
+
+/* Path */
+
+position: absolute;
+width: 7px;
+height: 14px;
+right: 40px;
+top: calc(50% - 14px/2);
+
+border: 2px solid #FFFFFF;
+
+
+/* Group 13 */
+
+position: absolute;
+width: 512px;
+height: 816px;
+left: 840px;
+top: 4814px;
+
+
+
+/* Mask */
+
+position: absolute;
+width: 512px;
+height: 816px;
+left: 840px;
+top: 4814px;
+
+background: #ECECEE;
+
+
+/* Mask */
+
+position: absolute;
+width: 512px;
+height: 816px;
+left: 840px;
+top: 4814px;
+
+background: #ECECEE;
+
+
+/* Lookbook */
+
+position: absolute;
+width: 1920px;
+height: 684px;
+left: 0px;
+top: 2955px;
+
+
+
+/* Group 22 */
+
+position: absolute;
+width: 536px;
+height: 500px;
+left: 0px;
+top: 58px;
+
+
+
+/* Mask */
+
+position: absolute;
+left: 0%;
+right: 72.08%;
+top: 8.48%;
+bottom: 18.42%;
+
+background: #ECECEE;
+
+
+/* Mask */
+
+position: absolute;
+left: 0%;
+right: 72.08%;
+top: 8.48%;
+bottom: 18.42%;
+
+background: #ECECEE;
+
+
+/* retro_style_wooden_furniture_range_2048x 1 */
+
+position: absolute;
+width: 777px;
+height: 518px;
+left: -121px;
+top: 58px;
+
+background: url(retro_style_wooden_furniture_range_2048x);
+
+
+/* Group 23 */
+
+position: absolute;
+width: 536px;
+height: 500px;
+left: 1384px;
+top: 58px;
+
+
+
+/* Mask */
+
+position: absolute;
+left: 72.08%;
+right: 0%;
+top: 8.48%;
+bottom: 18.42%;
+
+background: #ECECEE;
+
+
+/* Mask */
+
+position: absolute;
+left: 72.08%;
+right: 0%;
+top: 8.48%;
+bottom: 18.42%;
+
+background: #ECECEE;
+
+
+/* The_Invisible_Collection_About_Us-1 1 */
+
+position: absolute;
+width: 623px;
+height: 511.3px;
+left: 1373px;
+top: 52px;
+
+background: url(The_Invisible_Collection_About_Us-1);
+
+
+/* Group 24 */
+
+position: absolute;
+width: 784px;
+height: 616px;
+left: 568px;
+top: 0px;
+
+
+
+/* Mask */
+
+position: absolute;
+left: 29.58%;
+right: 29.58%;
+top: 0%;
+bottom: 9.94%;
+
+background: #ECECEE;
+
+
+/* Mask */
+
+position: absolute;
+left: 29.58%;
+right: 29.58%;
+top: 0%;
+bottom: 9.94%;
+
+background: #ECECEE;
+
+
+/* c6f804df-53ae-4148-9b40-e356e32d648a 1 */
+
+position: absolute;
+width: 1052px;
+height: 616px;
+left: 416px;
+top: 0px;
+
+background: url(c6f804df-53ae-4148-9b40-e356e32d648a);
+
+
+/* Rectangle */
+
+position: absolute;
+left: 43.75%;
+right: 29.58%;
+top: 0%;
+bottom: 76.17%;
+
+background: #BC260B;
+
+
+/* Rectangle */
+
+position: absolute;
+left: 29.58%;
+right: 65%;
+top: 74.85%;
+bottom: 9.94%;
+
+background: #FE7865;
+
+
+/* Autumn Collection */
+
+position: absolute;
+height: 48px;
+left: 49.53%;
+right: 35.26%;
+top: calc(50% - 48px/2 - 262px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 32px;
+line-height: 48px;
+/* identical to box height */
+letter-spacing: -0.553333px;
+
+color: #FFFFFF;
+
+
+
+/* Stacked Group 2 */
+
+position: absolute;
+width: 102px;
+height: 12px;
+left: 912px;
+top: 672px;
+
+
+
+/* Oval */
+
+position: absolute;
+left: 49.06%;
+right: 50.31%;
+top: 98.25%;
+bottom: 0%;
+
+background: #FE7865;
+
+
+/* Oval Copy 2 */
+
+position: absolute;
+left: 47.5%;
+right: 52.19%;
+top: 98.68%;
+bottom: 0.44%;
+
+background: #D8D8D8;
+
+
+/* Oval Copy 3 */
+
+position: absolute;
+left: 50.94%;
+right: 48.75%;
+top: 98.68%;
+bottom: 0.44%;
+
+background: #D8D8D8;
+
+
+/* Oval Copy 4 */
+
+position: absolute;
+left: 52.5%;
+right: 47.19%;
+top: 98.68%;
+bottom: 0.44%;
+
+background: #D8D8D8;
+
+
+/* 01 */
+
+position: absolute;
+height: 45px;
+left: 31.61%;
+right: 66.93%;
+top: calc(50% - 45px/2 + 223.5px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 300;
+font-size: 30px;
+line-height: 45px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+
+
+/* HERO HEADER */
+
+position: absolute;
+width: 1603px;
+height: 773px;
+left: 157px;
+top: 155px;
+
+
+
+/* Hero section */
+
+position: absolute;
+width: 1603px;
+height: 773px;
+left: 157px;
+top: 155px;
+
+
+
+/* Rectangle */
+
+position: absolute;
+width: 1088px;
+height: 773px;
+left: 160px;
+top: 155px;
+
+background: linear-gradient(90deg, #F5F8FC 0%, #E7EFF8 100%);
+
+
+/* Rectangle Copy */
+
+position: absolute;
+width: 512px;
+height: 773px;
+left: 1248px;
+top: 155px;
+
+background: linear-gradient(360deg, #FFFBF8 0%, #FFF5EF 100%);
+
+
+/* pngtree-d-rendering-living-room-interior-design-with-mock-up-furniture-and-image_13575141 1 */
+
+position: absolute;
+width: 1091px;
+height: 773px;
+left: 157px;
+top: 155px;
+
+background: url(pngtree-d-rendering-living-room-interior-design-with-mock-up-furniture-and-image_13575141);
+
+
+/* Chairs & Stools */
+
+position: absolute;
+height: 295px;
+left: 43.44%;
+right: 8.96%;
+top: calc(50% - 295px/2 - 2627.5px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 96px;
+line-height: 144px;
+letter-spacing: -1.66px;
+
+color: #2C2E3F;
+
+
+
+/* New Collection */
+
+position: absolute;
+height: 48px;
+left: 43.65%;
+right: 43.49%;
+top: calc(50% - 48px/2 - 2782px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 48px;
+/* identical to box height */
+letter-spacing: -0.184242px;
+
+color: #2C2E3F;
+
+
+
+/* Armchair upholstered */
+
+position: absolute;
+width: 390px;
+height: 56px;
+left: 840px;
+top: 518px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 28px;
+/* or 175% */
+letter-spacing: -0.466667px;
+
+color: rgba(44, 46, 63, 0.697549);
+
+
+
+/* 76453e49aab8db77d6962ad88c9e206b 1 */
+
+position: absolute;
+width: 912px;
+height: 816px;
+left: 840px;
+top: 4814px;
+
+background: url(76453e49aab8db77d6962ad88c9e206b);
+
+
+/* Group 11 */
+
+position: absolute;
+width: 1767px;
+height: 848px;
+left: 153px;
+top: 3793px;
+
+
+
+/* Rectangle 2 */
+
+position: absolute;
+width: 1079.39px;
+height: 848px;
+left: 832.61px;
+top: 3793px;
+
+
+
+/* Mask */
+
+position: absolute;
+width: 1079.39px;
+height: 848px;
+left: 832.61px;
+top: 3793px;
+
+background: #ECECEE;
+
+
+/* Mask */
+
+position: absolute;
+width: 1079.39px;
+height: 848px;
+left: 832.61px;
+top: 3793px;
+
+background: #ECECEE;
+
+
+/* Rectangle */
+
+position: absolute;
+width: 679.61px;
+height: 848px;
+left: 153px;
+top: 3793px;
+
+background: #FE7865;
+
+
+/* Join Us */
+
+position: absolute;
+height: 90px;
+left: 13.49%;
+right: 66.94%;
+top: calc(50% - 90px/2 + 831px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 72px;
+line-height: 90px;
+/* identical to box height, or 125% */
+letter-spacing: -1.245px;
+
+color: #FFFFFF;
+
+
+
+/* Sign up for the news */
+
+position: absolute;
+left: 13.49%;
+right: 66.94%;
+top: 65.06%;
+bottom: 34.05%;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 28px;
+/* or 175% */
+letter-spacing: -0.466667px;
+
+color: #FFFFFF;
+
+
+
+/* Agree the Privacy Policy */
+
+position: absolute;
+left: 13.38%;
+right: 62.05%;
+top: 70.28%;
+bottom: 28.83%;
+
+
+
+/* By subscribing you a */
+
+position: absolute;
+height: 56px;
+left: 8.9%;
+right: 0%;
+top: calc(50% - 56px/2);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 28px;
+/* or 187% */
+letter-spacing: -0.4375px;
+
+color: #FFFFFF;
+
+
+
+/* Radio button */
+
+position: absolute;
+width: 23.99px;
+height: 24px;
+left: 0px;
+top: 5px;
+
+
+
+/* Oval */
+
+position: absolute;
+left: 0%;
+right: 94.92%;
+top: 8.93%;
+bottom: 48.21%;
+
+background: #FFFFFF;
+
+
+/* Oval Copy */
+
+position: absolute;
+left: 1.69%;
+right: 96.61%;
+top: 23.21%;
+bottom: 62.5%;
+
+background: #FE7865;
+
+
+/* Rectangle */
+
+position: absolute;
+left: 13.49%;
+right: 74.02%;
+top: 64.43%;
+bottom: 35.51%;
+
+background: #FFFFFF;
+
+
+/* Special Offer */
+
+position: absolute;
+height: 50px;
+left: 13.49%;
+right: 70.73%;
+top: calc(50% - 50px/2 + 764px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 33px;
+line-height: 50px;
+/* identical to box height */
+letter-spacing: -0.19px;
+
+color: #FFFFFF;
+
+
+
+/* Group 9 */
+
+position: absolute;
+width: 471.73px;
+height: 62px;
+left: 256.94px;
+top: 4208px;
+
+
+
+/* Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #E6604D;
+
+
+/* Name */
+
+position: absolute;
+height: 21px;
+left: 6.78%;
+right: 84.11%;
+top: calc(50% - 21px/2 - 0.5px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+
+
+/* Group 9 Copy 2 */
+
+position: absolute;
+width: 471.73px;
+height: 62px;
+left: 255.94px;
+top: 4278px;
+
+
+
+/* Rectangle */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #F55C46;
+border: 1px solid #FFFFFF;
+
+
+/* hello@massimpression */
+
+position: absolute;
+height: 21px;
+left: 6.78%;
+right: 64.83%;
+top: calc(50% - 21px/2 + 0.5px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+
+
+/* Group 9 Copy */
+
+position: absolute;
+width: 471.73px;
+height: 62px;
+left: 256.94px;
+top: 4348px;
+
+
+
+/* Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #BC260B;
+
+
+/* sign up now */
+
+position: absolute;
+height: 18px;
+left: 39.19%;
+right: 39.19%;
+top: calc(50% - 18px/2 + 1px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 18px;
+/* identical to box height */
+text-align: center;
+letter-spacing: 2px;
+text-transform: uppercase;
+
+color: #FFFFFF;
+
+
+
+/* 1323380 1 */
+
+position: absolute;
+width: 1087px;
+height: 848px;
+left: 833px;
+top: 3793px;
+
+background: url(1323380);
+
+
+/* Button */
+
+position: absolute;
+width: 512px;
+height: 160px;
+left: 1248px;
+top: 768px;
+
+
+
+/* Rectangle */
+
+position: absolute;
+left: 65%;
+right: 8.33%;
+top: 12.15%;
+bottom: 85.32%;
+
+background: #BC260B;
+
+
+/* Shop Now */
+
+position: absolute;
+height: 36px;
+left: 69.43%;
+right: 22.86%;
+top: calc(50% - 36px/2 - 2312px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+letter-spacing: 2px;
+text-transform: uppercase;
+
+color: #FFFFFF;
+
+
+
+/* arrow-right */
+
+position: absolute;
+width: 14px;
+height: 14px;
+left: 1684px;
+top: 841px;
+
+
+
+/* Path */
+
+position: absolute;
+left: 87.71%;
+right: 11.56%;
+top: 13.41%;
+bottom: 86.57%;
+
+border: 2px solid #FFFFFF;
+
+
+/* Path */
+
+position: absolute;
+left: 88.07%;
+right: 11.56%;
+top: 13.31%;
+bottom: 86.47%;
+
+border: 2px solid #FFFFFF;
+
+
+/* Footer main */
+
+position: absolute;
+width: 1920px;
+height: 464px;
+left: 0px;
+top: 5856px;
+
+
+
+/* footer */
+
+position: absolute;
+width: 1920px;
+height: 464px;
+left: 0px;
+top: 5856px;
+
+
+
+/* FOOTER */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 92.66%;
+bottom: 0%;
+
+
+
+/* Group 21 */
+
+position: absolute;
+width: 1920px;
+height: 96px;
+left: 0px;
+top: 368px;
+
+
+
+/* Group 20 */
+
+position: absolute;
+width: 1920px;
+height: 96px;
+left: 0px;
+top: 368px;
+
+
+
+/* Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 79.31%;
+bottom: 0%;
+
+background: #FFFFFF;
+
+
+/* Group 19 */
+
+position: absolute;
+left: 4.95%;
+right: 5.21%;
+top: 86.21%;
+bottom: 7.76%;
+
+
+
+/* © 2018 Mass Impressi */
+
+position: absolute;
+height: 28px;
+left: 0%;
+right: 83.94%;
+top: calc(50% - 28px/2);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 28px;
+/* identical to box height, or 140% */
+letter-spacing: -0.379167px;
+
+color: rgba(44, 46, 63, 0.697549);
+
+
+
+/* facebook */
+
+position: absolute;
+width: 11.86px;
+height: 20px;
+left: 1529.86px;
+top: 4px;
+
+mix-blend-mode: normal;
+opacity: 0.5;
+
+
+/* Path */
+
+position: absolute;
+left: 88.69%;
+right: 10.62%;
+top: 14.29%;
+bottom: 14.29%;
+
+border: 2px solid #000000;
+
+
+/* twitter */
+
+position: absolute;
+width: 23.72px;
+height: 17.94px;
+left: 1610.72px;
+top: 4.99px;
+
+mix-blend-mode: normal;
+opacity: 0.5;
+
+
+/* Path */
+
+position: absolute;
+left: 93.38%;
+right: 5.25%;
+top: 17.82%;
+bottom: 18.09%;
+
+border: 2px solid #000000;
+
+
+/* instagram */
+
+position: absolute;
+width: 21.56px;
+height: 20px;
+left: 1703.44px;
+top: 4px;
+
+mix-blend-mode: normal;
+opacity: 0.5;
+
+
+/* Rectangle */
+
+position: absolute;
+left: 98.75%;
+right: 0%;
+top: 14.29%;
+bottom: 14.29%;
+
+border: 2px solid #000000;
+border-radius: 5px;
+
+
+/* Path */
+
+position: absolute;
+left: 99.13%;
+right: 0.37%;
+top: 35.56%;
+bottom: 35.87%;
+
+border: 2px solid #000000;
+
+
+/* Path */
+
+position: absolute;
+left: 99.69%;
+right: 0.25%;
+top: 28.57%;
+bottom: 67.86%;
+
+border: 2px solid #000000;
+
+
+/* Rectangle */
+
+position: absolute;
+left: 4.95%;
+right: 5.21%;
+top: 79.31%;
+bottom: 20.47%;
+
+background: #D8D8D8;
+
+
+/* About us Delivery an */
+
+position: absolute;
+height: 160px;
+left: 4.95%;
+right: 81.09%;
+top: calc(50% - 160px/2 - 71px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 40px;
+/* or 200% */
+
+color: rgba(44, 46, 63, 0.697549);
+
+
+
+/* About us Delivery an Copy */
+
+position: absolute;
+height: 160px;
+left: 22.5%;
+right: 65.26%;
+top: calc(50% - 160px/2 - 71px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 40px;
+/* or 200% */
+
+color: rgba(44, 46, 63, 0.697549);
+
+
+
+/* Helpful Links */
+
+position: absolute;
+height: 36px;
+left: 4.95%;
+right: 87.19%;
+top: calc(50% - 36px/2 - 214px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+letter-spacing: -0.103636px;
+
+color: #2C2E3F;
+
+
+
+/* Group 16 */
+
+position: absolute;
+left: 40.31%;
+right: 47.92%;
+top: 17.46%;
+bottom: 51.72%;
+
+
+
+/* 1-3 Abbey Street Eyn */
+
+position: absolute;
+height: 112px;
+left: 0%;
+right: -23.01%;
+top: calc(50% - 112px/2 + 15.5px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 28px;
+/* or 140% */
+
+color: rgba(44, 46, 63, 0.697549);
+
+
+
+/* Oxford (UK) */
+
+position: absolute;
+height: 30px;
+left: 0%;
+right: 9.73%;
+top: calc(50% - 30px/2 - 56.5px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 30px;
+/* identical to box height */
+
+color: #2C2E3F;
+
+
+
+/* Group 22 */
+
+position: absolute;
+left: 50.94%;
+right: 37.29%;
+top: 17.46%;
+bottom: 51.72%;
+
+
+
+/* 1-3 Abbey Street Eyn */
+
+position: absolute;
+height: 112px;
+left: 0%;
+right: -23.01%;
+top: calc(50% - 112px/2 + 15.5px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 28px;
+/* or 140% */
+
+color: rgba(44, 46, 63, 0.697549);
+
+
+
+/* Oxford (UK) */
+
+position: absolute;
+height: 30px;
+left: 0%;
+right: 9.73%;
+top: calc(50% - 30px/2 - 56.5px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 30px;
+/* identical to box height */
+
+color: #2C2E3F;
+
+
+
+/* Contact Info */
+
+position: absolute;
+height: 36px;
+left: 40.31%;
+right: 55.1%;
+top: calc(50% - 36px/2 - 214px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+letter-spacing: -0.103636px;
+
+color: #2C2E3F;
+
+
+
+/* Sign Up Now Copy */
+
+position: absolute;
+height: 36px;
+left: 68.28%;
+right: 23.85%;
+top: calc(50% - 36px/2 - 214px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+letter-spacing: -0.103636px;
+
+color: #2C2E3F;
+
+
+
+/* Group 18 */
+
+position: absolute;
+width: 512px;
+height: 208px;
+left: 1308px;
+top: 96px;
+
+
+
+/* Group 9 */
+
+position: absolute;
+left: 68.12%;
+right: 5.21%;
+top: 20.69%;
+bottom: 70.69%;
+
+
+
+/* Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 97.5%;
+bottom: 0%;
+
+background: #E6604D;
+
+
+/* Name */
+
+position: absolute;
+width: 46.91px;
+height: 21px;
+left: 0px;
+top: 0px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+
+color: #2C2E3F;
+
+
+
+/* Group 9 Copy 2 */
+
+position: absolute;
+left: 68.12%;
+right: 5.21%;
+top: 36.42%;
+bottom: 54.96%;
+
+
+
+/* Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 97.5%;
+bottom: 0%;
+
+background: #E6604D;
+
+
+/* Email */
+
+position: absolute;
+width: 41.45px;
+height: 21px;
+left: 0px;
+top: 0px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+
+color: #2C2E3F;
+
+
+
+/* Button */
+
+position: absolute;
+left: 68.12%;
+right: 5.21%;
+top: 52.16%;
+bottom: 34.48%;
+
+
+
+/* Button */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+
+/* Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #BC260B;
+
+
+/* sign up now */
+
+position: absolute;
+height: 18px;
+left: 40.03%;
+right: 40.05%;
+top: calc(50% - 18px/2 + 1px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 18px;
+/* identical to box height */
+text-align: center;
+letter-spacing: 2px;
+text-transform: uppercase;
+
+color: #FFFFFF;
+
+
+
+/* Helpful Links */
+
+position: absolute;
+height: 36px;
+left: 22.5%;
+right: 66.77%;
+top: calc(50% - 36px/2 + 2714px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+letter-spacing: -0.103636px;
+
+color: #2C2E3F;
+
+
+
+/* HEader main */
+
+position: absolute;
+width: 1920px;
+height: 155px;
+left: 0px;
+top: 0px;
+
+
+
+/* Header */
+
+position: absolute;
+width: 1920px;
+height: 155px;
+left: 0px;
+top: 0px;
+
+
+
+/* Rectangle 3 */
+
+position: absolute;
+width: 1920px;
+height: 155px;
+left: 0px;
+top: 0px;
+
+background: #FFFFFF;
+
+
+/* user icons */
+
+position: absolute;
+width: 196px;
+height: 20px;
+left: 1629px;
+top: 67px;
+
+
+
+/* shopping-bag */
+
+position: absolute;
+width: 18px;
+height: 20px;
+left: 1807px;
+top: 67px;
+
+
+
+/* Path */
+
+position: absolute;
+left: 94.11%;
+right: 4.95%;
+top: 1.06%;
+bottom: 98.62%;
+
+border: 2px solid #000000;
+
+
+/* Path */
+
+position: absolute;
+left: 94.11%;
+right: 4.95%;
+top: 1.12%;
+bottom: 98.87%;
+
+border: 2px solid #000000;
+
+
+/* Path */
+
+position: absolute;
+left: 94.38%;
+right: 5.21%;
+top: 1.19%;
+bottom: 98.75%;
+
+border: 2px solid #000000;
+
+
+/* search */
+
+position: absolute;
+width: 18px;
+height: 18px;
+left: 1717px;
+top: 68px;
+
+
+
+/* Oval */
+
+position: absolute;
+left: 89.43%;
+right: 9.74%;
+top: 1.08%;
+bottom: 98.67%;
+
+border: 2px solid #000000;
+
+
+/* Path */
+
+position: absolute;
+left: 90.14%;
+right: 9.64%;
+top: 1.29%;
+bottom: 98.64%;
+
+border: 2px solid #000000;
+
+
+/* user */
+
+position: absolute;
+width: 16px;
+height: 18px;
+left: 1629px;
+top: 68px;
+
+
+
+/* Path */
+
+position: absolute;
+left: 84.84%;
+right: 14.32%;
+top: 1.27%;
+bottom: 98.64%;
+
+border: 2px solid #000000;
+
+
+/* Oval */
+
+position: absolute;
+left: 85.05%;
+right: 14.53%;
+top: 1.08%;
+bottom: 98.8%;
+
+border: 2px solid #000000;
+
+
+/* Paramount-Logo-Original-Size-1 1 */
+
+position: absolute;
+width: 213px;
+height: 55px;
+left: 78px;
+top: 50px;
+
+background: url(Paramount-Logo-Original-Size-1.png);
+
+
+/* Menu items */
+
+position: absolute;
+width: 1180px;
+height: 84px;
+left: calc(50% - 1180px/2);
+top: calc(50% - 84px/2 - 3088px);
+
+background: #FFFFFF;
+
+
+/* Group 67 */
+
+position: absolute;
+width: 1093px;
+height: 38px;
+left: 22px;
+top: 31px;
+
+
+
+/* Home */
+
+position: absolute;
+height: 36px;
+left: 1.86%;
+right: 88.64%;
+top: calc(50% - 36px/2 + 7px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+
+color: #BC260B;
+
+
+
+/* Group 65 */
+
+position: absolute;
+width: 140px;
+height: 36px;
+left: 128px;
+top: 31px;
+
+
+
+/* Furniture */
+
+position: absolute;
+height: 36px;
+left: 10.85%;
+right: 77.63%;
+top: calc(50% - 36px/2 + 7px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+text-align: center;
+
+color: #141517;
+
+mix-blend-mode: normal;
+opacity: 0.7;
+
+
+/* dropdown-1 1 */
+
+position: absolute;
+width: 18px;
+height: 18px;
+left: 250px;
+top: 40px;
+
+background: url(dropdown-1.png);
+
+
+/* Group 66 */
+
+position: absolute;
+width: 155px;
+height: 36px;
+left: 441px;
+top: 31px;
+
+
+
+/* Magazine */
+
+position: absolute;
+height: 36px;
+left: 37.37%;
+right: 50.25%;
+top: calc(50% - 36px/2 + 7px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+text-align: center;
+
+color: #141517;
+
+mix-blend-mode: normal;
+opacity: 0.7;
+
+
+/* dropdown-1 3 */
+
+position: absolute;
+width: 18px;
+height: 18px;
+left: 578px;
+top: 42px;
+
+background: url(dropdown-1.png);
+
+
+/* Group 64 */
+
+position: absolute;
+width: 91px;
+height: 36px;
+left: 306px;
+top: 31px;
+
+
+
+/* dropdown-1 2 */
+
+position: absolute;
+width: 18px;
+height: 18px;
+left: 379px;
+top: 40px;
+
+background: url(dropdown-1.png);
+
+
+/* Group 38 */
+
+position: absolute;
+width: 82.37px;
+height: 36px;
+left: 306px;
+top: 31px;
+
+
+
+/* Decoration */
+
+position: absolute;
+height: 36px;
+left: 25.93%;
+right: 67.09%;
+top: calc(50% - 36px/2 + 7px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+text-align: center;
+
+color: #141517;
+
+mix-blend-mode: normal;
+opacity: 0.7;
+
+
+/* Group 63 */
+
+position: absolute;
+width: 94px;
+height: 36px;
+left: 1021px;
+top: 33px;
+
+
+
+/* dropdown-1 4 */
+
+position: absolute;
+width: 18px;
+height: 18px;
+left: 1097px;
+top: 41px;
+
+background: url(dropdown-1.png);
+
+
+/* Contact Us */
+
+position: absolute;
+height: 36px;
+left: 86.53%;
+right: 7.03%;
+top: calc(50% - 36px/2 + 9px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+text-align: center;
+
+color: #141517;
+
+mix-blend-mode: normal;
+opacity: 0.7;
+
+
+/* Outlet */
+
+position: absolute;
+height: 36px;
+left: 53.73%;
+right: 35.34%;
+top: calc(50% - 36px/2 + 7px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+text-align: center;
+
+color: #141517;
+
+mix-blend-mode: normal;
+opacity: 0.7;
+
+
+/* Contact Us */
+
+position: absolute;
+height: 36px;
+left: 67.29%;
+right: 16.78%;
+top: calc(50% - 36px/2 + 7px);
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+text-align: center;
+
+color: #141517;
+
+mix-blend-mode: normal;
+opacity: 0.7;

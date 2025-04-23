@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="relative w-full h-screen bg-white overflow-hidden">
+    <!-- Header -->
+    <div class="absolute w-full h-64 bg-white">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <img src="Paramount-Logo-Original-Size-1.png" alt="Logo" class="w-52 h-14">
+                <div class="flex items-center space-x-8">
+                    <div class="relative">
+                        <button class="text-lg font-semibold text-red-700">Home</button>
+                    </div>
+                    <div class="relative group">
+                        <button class="text-lg font-medium text-gray-700 group-hover:text-gray-900 transition-colors duration-200">
+                            Furniture
+                        </button>
+                        <div class="absolute inset-0">
+                            <div class="absolute w-4 h-4 bg-gray-200 rounded-full -top-2 -right-2 transition-opacity duration-200 group-hover:opacity-100 opacity-0"></div>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button class="text-lg font-medium text-gray-700 group-hover:text-gray-900 transition-colors duration-200">
+                            Magazine
+                        </button>
+                        <div class="absolute inset-0">
+                            <div class="absolute w-4 h-4 bg-gray-200 rounded-full -top-2 -right-2 transition-opacity duration-200 group-hover:opacity-100 opacity-0"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="w-6 h-6 bg-gray-200 rounded-full"></button>
+                    <button class="w-6 h-6 bg-gray-200 rounded-full"></button>
+                    <button class="w-6 h-6 bg-gray-200 rounded-full"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="absolute w-full h-[773px] top-64 bg-gradient-to-r from-gray-100 to-blue-100">
+        <div class="container mx-auto px-4 py-12">
+            <div class="flex flex-col items-center text-center">
+                <h1 class="text-6xl font-bold text-gray-800 leading-tight mb-4">Chairs & Stools</h1>
+                <p class="text-2xl font-semibold text-gray-800 mb-8">New Collection</p>
+                <button class="bg-red-600 text-white px-8 py-3 text-lg font-semibold rounded-full hover:bg-red-700 transition-colors duration-200">Shop Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="absolute w-full h-full top-64 overflow-y-auto">
+        <div class="container mx-auto px-4 py-12">
+            <!-- Your content goes here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="absolute w-full h-64 bg-white bottom-0">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex justify-between items-center">
+                <div class="flex flex-col">
+                    <p class="text-sm font-medium text-gray-600 mb-2">About us</p>
+                    <p class="text-sm font-medium text-gray-600 mb-2">Delivery and returns</p>
+                    <p class="text-sm font-medium text-gray-600 mb-2">Contact us</p>
+                </div>
+                <div class="flex flex-col">
+                    <p class="text-sm font-medium text-gray-600 mb-2">Helpful Links</p>
+                    <p class="text-sm font-medium text-gray-600 mb-2">Sign Up Now</p>
+                </div>
+                <div class="flex flex-col">
+                    <p class="text-sm font-medium text-gray-600 mb-2">Contact Info</p>
+                    <p class="text-sm font-medium text-gray-600 mb-2">1-3 Abbey Street Eynsham, Oxford (UK)</p>
+                </div>
+                <div class="flex flex-col items-end">
+                    <p class="text-sm font-medium text-gray-600 mb-2">&copy; 2018 Mass Impression</p>
+                    <div class="flex space-x-4">
+                        <button class="w-6 h-6 bg-gray-200 rounded-full"></button>
+                        <button class="w-6 h-6 bg-gray-200 rounded-full"></button>
+                        <button class="w-6 h-6 bg-gray-200 rounded-full"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
